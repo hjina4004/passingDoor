@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      프로젝트 서비스 로그인
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="member.member_id" name="member_id" placeholder="아이디"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="member.member_pw" name="member_pw" placeholder="비밀번호"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-checkbox [(ngModel)]="autoLogin"></ion-checkbox>
+    <ion-label>자동 로그인</ion-label>
+  </ion-item>
+
+  <div padding>
+    <button ion-button color="primary" block (click)="login()">로그인</button>
+  </div>
+
+  <ion-item>
+    <ion-label class="reason">{{reason.val}}</ion-label>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+        <ion-col style="text-align: left"><button ion-button default>아이디/비밀번호 찾기</button></ion-col>
+        <ion-col style="text-align: right"><button ion-button default (click)="signup()">신규 회원 가입</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

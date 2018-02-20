@@ -1,0 +1,97 @@
+<!--
+  Generated template for the YearPaperPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>연도별 문제풀기</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+    <ion-toolbar>
+      <ion-row>
+  
+        <ion-col col-4>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+  
+        <ion-col col-4 class="header-title">
+          <ion-title>합격문</ion-title>
+        </ion-col>
+  
+        <ion-col col-4>
+          <ion-buttons end>
+            <button ion-button default>
+              <ion-icon name="apps"></ion-icon>
+            </button>
+            <button ion-button default (click)="memberInfo()">
+              <ion-icon name="contact"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+  
+      </ion-row>
+    </ion-toolbar>
+
+    <br><br>
+    <ion-title>{{title.val}}</ion-title>
+  
+    <div padding>
+    
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val1" name="first"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="first()">
+          <span class="button-inner">2017년</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val2" name="contents"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="contents1()">
+          <span class="button-inner">2016년</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val3" name="contents"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="contents1()">
+          <span class="button-inner">2015년</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val4" name="contents"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="contents1()">
+          <span class="button-inner">2014년</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val5" name="contents"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="contents1()">
+          <span class="button-inner">2013년</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+      <ion-item hidden>
+          <ion-input type="text" [(ngModel)]="page.val6" name="contents"></ion-input>
+      </ion-item>
+      <button class="button-size button-padding" ion-button block (click)="contents1()">
+          <span class="button-inner">2012년 이전[저작권]</span>    
+          <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+  
+    </div>
+  </ion-content>

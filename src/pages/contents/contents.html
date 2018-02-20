@@ -1,0 +1,77 @@
+<!--
+  Generated template for the ContentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title.val}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-row>
+
+      <ion-col col-4>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-4 class="header-title">
+        <ion-title>합격문</ion-title>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-buttons end>
+          <button ion-button default>
+            <ion-icon name="apps"></ion-icon>
+          </button>
+          <button ion-button default (click)="memberInfo()">
+            <ion-icon name="contact"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+  <div padding>
+  
+    <ion-item hidden>
+        <ion-input type="text" [(ngModel)]="subject.title1" name="contents"></ion-input>
+    </ion-item>
+    <button class="button-size button-padding" ion-button block (click)="budongsan()">
+        <span class="button-inner">부동산학개론</span>    
+        <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+
+    <ion-item hidden>
+        <ion-input type="text" [(ngModel)]="subject.title2" name="contents"></ion-input>
+    </ion-item>
+    <button class="button-size button-padding" ion-button block (click)="minbeop()">
+        <span class="button-inner">민법 및 민사특별법</span>    
+        <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+
+    <button class="button-size button-padding" ion-button block (click)="joonggae()">
+        <span class="button-inner">중개사법령 및 실무</span>    
+        <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+    
+    <button class="button-size button-padding" ion-button block (click)="gongbeop()">
+        <span class="button-inner">부동산 공법</span>    
+        <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+    
+    <button class="button-size button-padding" ion-button block (click)="gongsi()">
+        <span class="button-inner">공시법 및 세법</span>    
+        <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+
+  </div>
+</ion-content>

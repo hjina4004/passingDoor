@@ -1,0 +1,95 @@
+<!--
+  Generated template for the KeywordPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+<ion-header>
+  <ion-buttons start>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons end>
+    <button ion-button>
+      <ion-icon name="grid"></ion-icon>
+    </button>
+    <img alt="logo" width="30" height="30" src="assets/img/hi.PNG" >
+  </ion-buttons>
+</ion-header>
+-->
+
+<ion-header>
+
+  <ion-toolbar>
+    <ion-row>
+
+      <ion-col col-4>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-4 class="header-title">
+        <ion-title>합격문</ion-title>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-buttons end>
+          <button ion-button default>
+            <ion-icon name="apps"></ion-icon>
+          </button>
+          <button ion-button default (click)="memberInfo()">
+            <ion-icon name="contact"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <ion-item>
+    <ion-label>id : {{ loginInfo.user_id }}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>token id : {{ loginInfo.token_id }}</ion-label>
+  </ion-item> -->
+
+  <ion-grid>
+    <ion-row class="search">
+        <ion-col col-10 class="searchbar">
+            <ion-searchbar
+              [(ngModel)]="myInput.keyword"
+              [showCancelButton]="shouldShowCancel"
+              (ionInput)="onInput($event)"
+              (ionCancel)="onCancel($event)"
+              placeholder="키워드를 입력하세요.">
+            </ion-searchbar>
+        </ion-col>
+        <ion-col col-2 class="searchBtn">
+          <button ion-button default (click)="searchKeyword()"><ion-icon name="search"></ion-icon></button>
+        </ion-col>
+    </ion-row>
+    <ion-list>
+      <ion-item *ngFor="let rlt of searchResult" (click)="goSearch(rlt)">
+        {{rlt.searchWord}}
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+        <ion-col style="text-align: center"><button ion-button default (click)="note()"><ion-icon name="create"></ion-icon>노트</button></ion-col>
+        <ion-col style="text-align: center"><button ion-button default (click)="video()"><ion-icon name="easel"></ion-icon>동영상</button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div [innerHTML]="test"></div>
+
+</ion-content>

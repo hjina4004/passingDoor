@@ -1,0 +1,46 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="member.member_id" name="member_id" placeholder="아이디"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="member.member_name" name="member_name" placeholder="닉네임"></ion-input>
+      <ion-label fixed>영문 / 숫자 4~12자</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="member.member_pw" name="member_pw" placeholder="비밀번호"></ion-input>
+      <ion-label fixed>영문 / 숫자 4~12자</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="member.member_pwCheck" name="member_pwCheck" placeholder="비밀번호확인"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" [(ngModel)]="member.member_email" name="member_email" placeholder="이메일"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button color="primary" block>회원가입</button>
+    </div>
+
+  </ion-list>
+</ion-content>
