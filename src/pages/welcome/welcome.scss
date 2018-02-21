@@ -1,8 +1,14 @@
 page-welcome {
-
-  .title{ border: 1px solid; height: 200px; }
-  .button-size{ height:45px; }
-  .button-padding{ padding-right: 25px; }
-  .button-inner{ justify-content:flex-start; }
- 
+  .title{ border: 0px solid; height: 200px; }
+  .btn{ width: 100%; height: 70px; padding-left: 15px; position: relative; display: table; background-color: #3e4885; }
+  .btn-icon{ width: 32px; height: 100%; vertical-align: middle; display: table-cell; }
+  .btn-icon>img{ width: 32px; height: auto; }
+  .btn-inner{ width: calc(100% - 50px); height: 100%; padding-left: 10px; vertical-align: middle; color: #ffffff; font-size: 10pt; display: table-cell; }
+  .home-background {
+    background-image: url('../assets/img/a003_bg.jpg');
+    background-size: 100% 100%;
+  }
+  .footer-img {width: 24px; height: auto; display: block; margin: 0 auto 10px;}
+  .text-center {text-align: center;}
+  .color-footer {color: #f2631f;}
 }

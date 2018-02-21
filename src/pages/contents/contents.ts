@@ -31,7 +31,7 @@ export class ContentsPage {
   range = this.navParams.get('range');
   pastPaper = this.navParams.get('pastPaper');
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
               public navParams: NavParams) {
 
   }
@@ -50,11 +50,11 @@ export class ContentsPage {
     }
 
     this.navbar.backButtonClick = (e:UIEvent) => {
-      
+
       let navOptions = {
         animation: 'ios-transition'
       };
-      this.navCtrl.pop(navOptions);
+      this.navCtrl.pop({});
     }
 
   }

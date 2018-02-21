@@ -16,10 +16,10 @@ import { Storage } from '@ionic/storage';
 })
 export class WelcomePage {
 
-  title = this.lang.mainTitle;
+  title = "";
 
-  isViewEvent =  { 
-    view: 'false' 
+  isViewEvent =  {
+    view: 'false'
   };
 
   page = {
@@ -32,7 +32,7 @@ export class WelcomePage {
   // pageName2 = 'year';
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     private platform: Platform,
     private menuCtrl: MenuController,
     private modalCtrl: ModalController,
@@ -81,7 +81,7 @@ export class WelcomePage {
         this.isViewEvent.view = 'true';
       }
     });
-        
+
   }
 
   // content button
@@ -119,7 +119,7 @@ export class WelcomePage {
     let navOptions = {
       animation: 'ios-transition'
     };
-    this.navCtrl.push(pageName, data, navOptions);
+    this.navCtrl.push(pageName, data, {});
   }
 
 }

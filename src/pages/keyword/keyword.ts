@@ -82,4 +82,8 @@ export class KeywordPage {
   goSearch(item) {
     this.myInput.keyword = item.searchWord;
   }
+
+  goNote() {
+    this.navCtrl.push('NotePage');
+  }
 }

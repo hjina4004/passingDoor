@@ -1,61 +1,75 @@
-<ion-content scroll="false">
-  <div padding>
+<ion-content class="home-background">
+  <span ion-fixed style="height: 100%; width: 100%">
+  <ion-item hidden>
+    <ion-input type="text" [(ngModel)]="page.val1" name="contents"></ion-input>
+    <ion-input type="text" [(ngModel)]="page.val2" name="year"></ion-input>
+    <ion-input type="text" [(ngModel)]="page.val3" name="year"></ion-input>
+    <ion-input type="text" [(ngModel)]="page.val4" name="year"></ion-input>
+  </ion-item>
 
-    <div class="title" [innerHTML]="title"></div>
+  <div class="title"></div>
 
-    <button class="button-size button-padding" ion-button block (click)="keyword()">
-        <span class="button-inner">키워드별 기출풀기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-    <ion-item hidden>
-        <ion-input type="text" [(ngModel)]="page.val1" name="contents"></ion-input>
-    </ion-item>
-    <button class="button-size button-padding" ion-button block (click)="contents1()">
-        <span class="button-inner">목차별 기출풀기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-    <ion-item hidden>
-        <ion-input type="text" [(ngModel)]="page.val2" name="year"></ion-input>
-    </ion-item>
-    <button class="button-size button-padding" ion-button block (click)="contents2()">
-        <span class="button-inner">년도별 기출풀기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-    <ion-item hidden>
-        <ion-input type="text" [(ngModel)]="page.val3" name="year"></ion-input>
-    </ion-item>
-    <button class="button-size button-padding" ion-button block (click)="contents3()">
-        <span class="button-inner">범위별 기출풀기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-    <button class="button-size button-padding" ion-button block (click)="everyday()">
-        <span class="button-inner">매일 기출풀기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-    <br>
-
-    <ion-item hidden>
-        <ion-input type="text" [(ngModel)]="page.val4" name="year"></ion-input>
-    </ion-item>
-    <button class="button-padding" ion-button large color="light" block (click)="contents4()">
-        <span class="button-inner">족보로 공부하기</span>    
-        <ion-icon name="arrow-forward"></ion-icon>
-    </button>
-
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div class="btn" (click)="keyword()">
+          <div class="btn-icon"><img src="assets/img/ic_20.png" /></div>
+          <span class="btn-inner">키워드별 기출문제</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <div class="btn" (click)="contents1()">
+          <div class="btn-icon"><img src="assets/img/ic_11.png" /></div>
+          <span class="btn-inner">목차별 기출문제</span>
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <div class="btn" (click)="contents2()">
+          <div class="btn-icon"><img src="assets/img/ic_12.png" /></div>
+          <span class="btn-inner">년도별 기출문제</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <div class="btn" (click)="contents3()">
+          <div class="btn-icon"><img src="assets/img/ic_15.png" /></div>
+          <span class="btn-inner">범위별 기출문제</span>
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <div class="btn" (click)="everyday()">
+          <div class="btn-icon"><img src="assets/img/ic_01.png" /></div>
+          <span class="btn-inner">매일 기출문제 풀기</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <div class="btn" (click)="contents4()">
+          <div class="btn-icon"><img src="assets/img/ic_13.png" /></div>
+          <span class="btn-inner">족보로 공부하기</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </span>
 </ion-content>
 
 <ion-footer>
   <ion-grid>
-      <ion-row>
-          <ion-col style="text-align: center"><button ion-button default (click)="notice()"><ion-icon name="megaphone"></ion-icon>공지사항</button></ion-col>
-          <ion-col style="text-align: center"><button ion-button default (click)="howtouse()"><ion-icon name="book"></ion-icon>이용방법</button></ion-col>
-          <ion-col style="text-align: center"><button ion-button default (click)="login()"><ion-icon name="log-in"></ion-icon>로그인</button></ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-row>
+      <ion-col (click)="notice()" class="text-center color-footer">
+        <img class="footer-img" src="assets/img/ic_09.png" />공지사항
+      </ion-col>
+      <ion-col (click)="login()" class="text-center color-footer">
+        <img class="footer-img" src="assets/img/ic_10.png" />로그인
+      </ion-col>
+      <ion-col (click)="howtouse()" class="text-center color-footer">
+        <img class="footer-img" src="assets/img/ic_08.png" />이용방법
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>
