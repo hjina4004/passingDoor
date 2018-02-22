@@ -64,6 +64,10 @@ export class KeywordPage {
     } //if END
   }
 
+  onClear(ev){
+    this.searchKeyword();
+  }
+
   searchKeyword(){
     let keyword = this.myInput.keyword.trim();
 
@@ -85,5 +89,9 @@ export class KeywordPage {
 
   goNote() {
     this.navCtrl.push('NotePage');
+  }
+
+  goVideo() {
+
   }
 }

@@ -1,0 +1,68 @@
+{
+  "BACK_BUTTON_TEXT": "돌아 가기",
+
+  "NAME": "이름",
+  "EMAIL": "이메일",
+  "USERNAME": "사용자 이름",
+  "PASSWORD": "비밀번호",
+  "LOGIN": "로그인",
+  "SIGNUP": "회원가입",
+
+  "TAB1_TITLE": "프로젝트",
+  "TAB2_TITLE": "검색",
+  "TAB3_TITLE": "설정",
+
+  "MAP_TITLE": "지도",
+
+  "TUTORIAL_SKIP_BUTTON": "건너 뛰기",
+  "TUTORIAL_CONTINUE_BUTTON": "계속",
+
+  "TUTORIAL_SLIDE1_TITLE": "합격문에 오신 것을 환영합니다",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>합격문</b>에서 족보와 기출문제로 슬기로운 공부를 하세요~",
+
+  "TUTORIAL_SLIDE2_TITLE": "합격문 사용",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "키워드 검색을 통해 원하는 학습을 할 수 있습니다.",
+
+  "TUTORIAL_SLIDE3_TITLE": "시작하기",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "도움이 필요하세요?",
+
+  "TUTORIAL_SLIDE4_TITLE": "준비 되셨습니까?",
+
+  "WELCOME_INTRO": "족보와 기출문제로 슬기로운 공부 ~~",
+
+  "SETTINGS_TITLE": "설정",
+  "SETTINGS_OPTION1": "옵션 1",
+  "SETTINGS_OPTION2": "옵션 2",
+  "SETTINGS_OPTION3": "옵션 3",
+  "SETTINGS_OPTION4": "옵션 4",
+
+  "SETTINGS_PROFILE_BUTTON": "프로필 수정",
+
+  "SETTINGS_PAGE_PROFILE": "프로필 수정",
+
+  "WELCOME_TITLE": "환영합니다",
+
+  "LOGIN_TITLE": "로그인",
+  "LOGIN_ERROR": "계정 정보를 확인하고 다시 시도하십시오.",
+  "LOGIN_BUTTON": "로그인",
+  "SIGNUP_TITLE": "회원가입",
+  "SIGNUP_ERROR": "계정을 만들 수 없습니다. 계정 정보를 확인하고 다시 시도하십시오.",
+  "SIGNUP_BUTTON": "회원가입",
+
+  "LIST_MASTER_TITLE": "프로젝트",
+
+  "ITEM_CREATE_TITLE": "새 항목",
+  "ITEM_CREATE_CHOOSE_IMAGE": "이미지 추가",
+
+  "ITEM_NAME_PLACEHOLDER": "이름",
+  "ITEM_ABOUT_PLACEHOLDER": "설명",
+
+  "DONE_BUTTON": "완료",
+  "CANCEL_BUTTON": "취소",
+  "DELETE_BUTTON": "삭제",
+
+  "CARDS_TITLE": "소셜",
+
+  "SEARCH_TITLE": "검색",
+  "SEARCH_PLACEHOLDER": "항목 목록을 검색 예 \"홍길동\""
+}

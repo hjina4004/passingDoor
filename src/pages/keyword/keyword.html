@@ -14,14 +14,14 @@
   </ion-buttons>
 </ion-header>
 -->
-<ion-header>
+<ion-header no-border>
 
   <ion-toolbar>
     <ion-row>
 
       <ion-col col-4>
         <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+          <img src="assets/img/ic_06.png">
         </button>
       </ion-col>
 
@@ -32,10 +32,10 @@
       <ion-col col-4>
         <ion-buttons end>
           <button ion-button default>
-            <ion-icon name="apps"></ion-icon>
+            <img src="assets/img/ic_07.png">
           </button>
           <button ion-button default (click)="memberInfo()">
-            <ion-icon name="contact"></ion-icon>
+            <img src="assets/img/ic_24.png">
           </button>
         </ion-buttons>
       </ion-col>
@@ -45,7 +45,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <!-- <ion-item>
     <ion-label>id : {{ loginInfo.user_id }}</ion-label>
@@ -54,7 +54,18 @@
   <ion-item>
     <ion-label>token id : {{ loginInfo.token_id }}</ion-label>
   </ion-item> -->
+  <ion-item class="bg-primary">
+    <ion-searchbar
+      [(ngModel)]="myInput.keyword"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)"
+      placeholder="키워드를 입력하세요.">
+    </ion-searchbar>
+    <div class="btn-search" (click)="searchKeyword()" item-end><ion-icon name="search"></ion-icon></div>
+  </ion-item>
 
+  <!--
   <ion-grid>
     <ion-row class="search">
         <ion-col col-10 class="searchbar">
@@ -76,14 +87,25 @@
       </ion-item>
     </ion-list>
   </ion-grid>
+  -->
 
   <ion-grid>
     <ion-row>
-        <ion-col style="text-align: center"><button ion-button default (click)="goNote()"><ion-icon name="create"></ion-icon>노트</button></ion-col>
-        <ion-col style="text-align: center"><button ion-button default (click)="video()"><ion-icon name="easel"></ion-icon>동영상</button></ion-col>
+      <ion-col><button ion-button block clear (click)="goNote()"><img src="assets/img/ic_26.png">노트</button></ion-col>
+      <ion-col><button ion-button block clear (click)="goVideo()"><img src="assets/img/ic_25.png">동영상</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="btn-gray btn-top-border">기출문제 전체 풀기</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="btn-gray">학습하기</ion-col>
     </ion-row>
   </ion-grid>
 
-  <div [innerHTML]="test"></div>
+  <ion-list>
+    <ion-item *ngFor="let rlt of searchResult" (click)="goSearch(rlt)">
+      {{rlt.searchWord}}
+    </ion-item>
+  </ion-list>
 
 </ion-content>

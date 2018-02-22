@@ -12,13 +12,13 @@ page-modal {
     // .footer{
     //     height: 60px;
     // }
-    // .ion-col1{ 
-    //     text-align: left; 
-    //     border: 1px solid green; 
+    // .ion-col1{
+    //     text-align: left;
+    //     border: 1px solid green;
     //     height: 55px;
     // }
-    // .ion-col2{ 
-    //     // text-align: right; 
+    // .ion-col2{
+    //     // text-align: right;
     //     margin: auto;
     //     height: 55px;
     //     border: 1px solid blue; }
@@ -27,5 +27,5 @@ page-modal {
     .neverShow { padding-right: 0px; height: 55px; }
     .item { background-color: #dae9f4; }
     .closeBtn { height: 45px; }
-
+    ::-webkit-scrollbar { display: none; }
 }

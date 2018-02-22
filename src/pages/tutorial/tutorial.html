@@ -1,28 +1,29 @@
-<ion-content no-bounce class="content">
+<!--
+<ion-header no-shadow>
+  <ion-navbar>
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+-->
+
+<ion-content no-bounce>
   <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
     <ion-slide *ngFor="let slide of slides">
-      <img [src]="slide.image" class="slide-image" />
+      <img class="slide-image" [src]="slide.image" />
+      <div class="skip-slide-layer" (click)="startApp()"></div>
     </ion-slide>
     <ion-slide>
       <img src="assets/img/tu-slidebox-img-4.jpg" class="slide-image" />
+      <div class="end-slide-layer">
+        <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
+        <button ion-button icon-end large clear (click)="startApp()">
+          {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
+      <div class="skip-slide-layer" (click)="startApp()"></div>
     </ion-slide>
   </ion-slides>
 </ion-content>
-
-<ion-footer class="footer">
-  <ion-grid>
-    <ion-row>
-        <ion-col class="ion-col1">
-            <ion-item class="item">
-              <ion-checkbox [(ngModel)]="checked"></ion-checkbox>
-              <ion-label fixed>다시보지않기</ion-label>
-            </ion-item>
-        </ion-col>
-        <ion-col class="ion-col2">
-          <button ion-button icon-end large clear (click)="startApp()">
-            <ion-icon name="close-circle"></ion-icon>
-          </button>
-        </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>

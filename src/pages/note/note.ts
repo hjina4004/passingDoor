@@ -28,7 +28,7 @@ export class NotePage {
   }
 
   loadNote() {
-    this.http.get('/android_asset/www/assets/html/minbeop.html')
+    this.http.get('assets/html/minbeop.html')
     .map((res:Response) => res.text())
     .subscribe(data => {
       this.contentsNote = data;

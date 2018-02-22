@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
+
 import { TranslateService } from '@ngx-translate/core';
-import { Storage } from '@ionic/storage';
-import { MainPage } from '../../pages/pages';
 
 export interface Slide {
+  title: string;
+  description: string;
   image: string;
 }
 
@@ -17,51 +18,30 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
   dir: string = 'ltr';
-  checked : boolean = false;
 
-  constructor(public navCtrl: NavController, 
-              public menu: MenuController, 
-              translate: TranslateService, 
-              public platform: Platform,
-              private storage: Storage) {
-
+  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
-      "TUTORIAL_SLIDE2_TITLE",
-      "TUTORIAL_SLIDE2_DESCRIPTION",
-      "TUTORIAL_SLIDE3_TITLE",
-      "TUTORIAL_SLIDE3_DESCRIPTION",
     ]).subscribe(
       (values) => {
         console.log('Loaded values', values);
         this.slides = [
           {
+            title: values.TUTORIAL_SLIDE1_TITLE,
+            description: values.TUTORIAL_SLIDE1_DESCRIPTION,
             image: 'assets/img/tu-slidebox-img-1.jpg',
-          },
-          {
-            image: 'assets/img/tu-slidebox-img-2.jpg',
-          },
-          {
-            image: 'assets/img/tu-slidebox-img-3.jpg',
           }
         ];
       });
   }
 
   startApp() {
-    let checkDate = new Date().toISOString().slice(0,10);
-    let navOptions = {
-      animation: 'ios-transition'
-    };
-    
-    if (this.checked == true){
-      this.storage.set('checked_date', checkDate);
-      this.navCtrl.setRoot(MainPage, {}, navOptions);
-    } else {
-      this.navCtrl.setRoot(MainPage, {}, navOptions);
-    }
-  } 
+    this.navCtrl.setRoot('WelcomePage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
 
   onSlideChangeStart(slider) {
     this.showSkip = !slider.isEnd();
