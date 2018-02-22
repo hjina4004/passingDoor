@@ -3,7 +3,7 @@ page-welcome {
   ::-webkit-scrollbar { display: none; }
   .btn{ width: 100%; height: 70px; padding-left: 15px; position: relative; display: table; background-color: #3e4885; }
   .btn-icon{ width: 32px; height: 100%; vertical-align: middle; display: table-cell; }
-  .btn-icon>img{ width: 32px; height: auto; }
+  .btn-icon>.icon{color: #fafafa;}
   .btn-inner{ width: calc(100% - 50px); height: 100%; padding-left: 10px; vertical-align: middle; color: #ffffff; font-size: 10pt; display: table-cell; }
   .home-background {
     background-image: url('../assets/img/a003_bg.jpg');
