@@ -4,7 +4,7 @@ import { IonicPage, NavController, Platform, MenuController, ModalController, Al
 import { Storage } from '@ionic/storage';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
-import { ToastController } from 'ionic-angular';
+import { GlobalFunction } from '../../providers/global-function';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -18,7 +18,6 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'welcome.html'
 })
 export class WelcomePage {
-
   title = "";
   confirm_dlg = null;
 
@@ -32,8 +31,6 @@ export class WelcomePage {
     val3: 'range',
     val4: 'pastPaper'
   };
-  // pageName1 = 'contents';
-  // pageName2 = 'year';
 
   constructor(
     public navCtrl: NavController,
@@ -43,32 +40,17 @@ export class WelcomePage {
     private lang: LanguageProvider,
     private storage: Storage,
     private androidFullScreen: AndroidFullScreen,
-    private toastCtrl: ToastController,
+    private globalFunction: GlobalFunction,
     private alertCtrl: AlertController) {
 
+    this.globalFunction.setNavController(this.navCtrl);
     this.platform.ready().then(() => {
       this.platform.registerBackButtonAction(() => {
         if (this.menuCtrl.isOpen()){
           this.menuCtrl.close();
         } else if (this.navCtrl.canGoBack()){
-          let navOptions = {
-            animation: 'ios-transition'
-          };
-          this.navCtrl.pop(navOptions);
+          this.globalFunction.moveBack();
         } else {
-          // let alert = this.aletCtrl.create({
-          //   title: '알림',
-          //   message: '합격문 앱을 종료하시겠습니까?',
-          //   buttons: [{
-          //     text: '취소',
-          //     role: 'cancel'
-          //   }, {
-          //     text: '확인',
-          //     handler: () => { this.platform.exitApp(); }
-          //   }]
-          // })
-          // alert.present();
-          // alert('종료');
           this.showConfirm();
         }
       });
@@ -89,7 +71,6 @@ export class WelcomePage {
         {
           text: '취소',
           handler: () => {
-            console.log('Disagree clicked');
             this.confirm_dlg = null;
           }
         },
@@ -116,56 +97,43 @@ export class WelcomePage {
         this.isViewEvent.view = 'true';
       }
     });
-
   }
 
   // content button
   keyword(){
-    this.moveTo('KeywordPage', {});
+    this.globalFunction.moveTo('KeywordPage', {});
   }
 
   contents1(){
-    this.moveTo('ContentsPage', { contents: this.page.val1 });
+    this.globalFunction.moveTo('ContentsPage', { contents: this.page.val1 });
   }
+
   contents2(){
-    this.moveTo('ContentsPage', { year: this.page.val2 });
+    this.globalFunction.moveTo('ContentsPage', { year: this.page.val2 });
   }
+
   contents3(){
-    this.moveTo('ContentsPage', { range: this.page.val3 });
+    this.globalFunction.moveTo('ContentsPage', { range: this.page.val3 });
   }
+
   contents4(){
-    this.moveTo('ContentsPage', { pastPaper: this.page.val4 });
+    this.globalFunction.moveTo('ContentsPage', { pastPaper: this.page.val4 });
+  }
+
+  everyday() {
+    this.globalFunction.presentToast("준비 중입니다.", 3000);
   }
 
   // footer button
   notice(){
-    this.moveTo('NoticePage', {});
-  }
-
-  howtouse(){
-    this.moveTo('HowtousePage', {});
+    this.globalFunction.moveTo('NoticePage', {});
   }
 
   login(){
-    this.moveTo('LoginPage', {});
+    this.globalFunction.moveTo('LoginPage', {});
   }
 
-  moveTo(pageName, data){
-    let navOptions = {
-      animation: 'ios-transition'
-    };
-    this.navCtrl.push(pageName, data, {});
-  }
-
-  everyday() {
-    this.presentToast("준비 중입니다.");
-  }
-
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000
-    });
-    toast.present();
+  howtouse(){
+    this.globalFunction.moveTo('HowtousePage', {});
   }
 }

@@ -24,6 +24,7 @@ import { LanguageProvider } from '../providers/language/language';
 import { MinbeopProvider } from '../providers/minbeop/minbeop';
 import { AutocompleteDataProvider } from '../providers/autocomplete-data/autocomplete-data';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { GlobalFunction } from '../providers/global-function';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -85,6 +86,7 @@ export function provideSettings(storage: Storage) {
     LanguageProvider,
     MinbeopProvider,
     AndroidFullScreen,
+    GlobalFunction,
     AutocompleteDataProvider
   ]
 })

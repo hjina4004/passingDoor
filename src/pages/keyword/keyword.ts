@@ -4,7 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
-import { ToastController } from 'ionic-angular';
+import { GlobalFunction } from '../../providers/global-function';
+
 
 /**
  * Generated class for the KeywordPage page.
@@ -19,9 +20,6 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'keyword.html',
 })
 export class KeywordPage {
-
-  test: string = "<br><h3>기출풀기<br><br>1. (민법) 부동산물권변동<br>2. (민법)유치권</h3>";
-
   myInput = {keyword:""};
 
   searchResult;
@@ -36,8 +34,9 @@ export class KeywordPage {
     public navParams: NavParams,
     private storage: Storage,
     private minbeopPv: MinbeopProvider,
-    private toastCtrl: ToastController,
+    private globalFunction: GlobalFunction,
     private autoPv: AutocompleteDataProvider) {
+    this.globalFunction.setNavController(this.navCtrl);
   }
 
   ionViewDidLoad() {
@@ -58,6 +57,13 @@ export class KeywordPage {
     // });
   } //ionViewDidLoad END
 
+  swipeEvent(ev) {
+    console.log("swipeEvent:", ev.direction);
+    if (ev.direction == 4) {
+      this.globalFunction.moveBack();
+    }
+  }
+
   onInput(ev){
     let searchKeyword = ev.target.value;
     if (searchKeyword){
@@ -67,17 +73,14 @@ export class KeywordPage {
     } //if END
   }
 
-  searchKeyword(){
+  searchKeyword() {
     let keyword = this.myInput.keyword.trim();
 
     if (keyword === undefined || keyword == ''){
-      alert('keyword를 입력해주세요');
+      this.globalFunction.presentToast('keyword를 입력해주세요', 3000);
     } else {
       this.minbeopPv.searchMinbeop(keyword).then(keywordData => {
-        let navOptions = {
-          animation: 'ios-transition'
-        };
-        this.navCtrl.push('KeywordResultPage', { getSearchData: keywordData, sKeyword: keyword }, navOptions);
+        this.globalFunction.moveTo('KeywordResultPage', { getSearchData: keywordData, sKeyword: keyword });
       });
     }
   } // searchKeyword END
@@ -87,19 +90,10 @@ export class KeywordPage {
   }
 
   goNote() {
-    this.presentToast("불러 오는 중입니다.");
-    this.navCtrl.push('NotePage');
+    this.globalFunction.moveTo('NotePage', {});
   }
 
   goVideo() {
-    this.presentToast("준비 중입니다.");
-  }
-
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000
-    });
-    toast.present();
+    this.globalFunction.presentToast("준비 중입니다.", 3000);
   }
 }

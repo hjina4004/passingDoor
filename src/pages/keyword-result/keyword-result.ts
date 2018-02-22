@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
-import { ToastController } from 'ionic-angular';
+import { GlobalFunction } from '../../providers/global-function';
 
 /**
  * Generated class for the KeywordResultPage page.
@@ -29,9 +29,10 @@ export class KeywordResultPage {
 
   constructor(
     public navCtrl: NavController,
-    private toastCtrl: ToastController,
     public navParams: NavParams,
+    private globalFunction: GlobalFunction,
     private minbeopPv: MinbeopProvider) {
+    this.globalFunction.setNavController(this.navCtrl);
   }
 
   ionViewDidLoad() {
@@ -45,7 +46,14 @@ export class KeywordResultPage {
     this.minbeop = this.searchData;
   }
 
-  solve(selected_id){
+  swipeEvent(ev) {
+    console.log("swipeEvent:", ev.direction);
+    if (ev.direction == 4) {
+      this.globalFunction.moveBack();
+    }
+  }
+
+  solve(selected_id) {
     // alert(JSON.stringify(selected_id.m_key));
     // let todayDate = new Date().toISOString().slice(0,10);
     let m_key = JSON.stringify(selected_id.m_key).slice(0,-1);
@@ -59,19 +67,10 @@ export class KeywordResultPage {
   }
 
   goNote() {
-    this.presentToast("불러 오는 중입니다.");
-    this.navCtrl.push('NotePage');
+    this.globalFunction.moveTo('NotePage', {});
   }
 
   goVideo() {
-    this.presentToast("준비 중입니다.");
-  }
-
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000
-    });
-    toast.present();
+    this.globalFunction.presentToast("준비 중입니다.", 3000);
   }
 }

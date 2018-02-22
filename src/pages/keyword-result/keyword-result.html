@@ -26,20 +26,16 @@
 </ion-header>
 -->
 <ion-header no-border>
-
   <ion-toolbar>
     <ion-row>
-
       <ion-col col-4>
         <button ion-button menuToggle>
           <img src="assets/img/ic_06.png">
         </button>
       </ion-col>
-
       <ion-col col-4 class="header-title">
         <ion-title>합격문</ion-title>
       </ion-col>
-
       <ion-col col-4>
         <ion-buttons end>
           <button ion-button default>
@@ -50,13 +46,23 @@
           </button>
         </ion-buttons>
       </ion-col>
-
+    </ion-row>
+    <ion-row>
+      <ion-item class="bg-primary">
+        <ion-searchbar
+          [(ngModel)]="myInput"
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onInput($event)"
+          (ionCancel)="onCancel($event)"
+          placeholder="키워드를 입력하세요.">
+        </ion-searchbar>
+        <div class="btn-search" (click)="searchKeyword()" item-end><ion-icon name="search"></ion-icon></div>
+      </ion-item>
     </ion-row>
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content>
+<ion-content (swipe)="swipeEvent($event)">
 <!--
   <ion-grid>
     <ion-row class="search">
@@ -75,16 +81,6 @@
     </ion-row>
   </ion-grid>
 -->
-  <ion-item class="bg-primary">
-    <ion-searchbar
-      [(ngModel)]="myInput"
-      [showCancelButton]="shouldShowCancel"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)"
-      placeholder="키워드를 입력하세요.">
-    </ion-searchbar>
-    <div class="btn-search" (click)="searchKeyword()" item-end><ion-icon name="search"></ion-icon></div>
-  </ion-item>
 <!--
   <ion-grid>
     <ion-row>
@@ -107,7 +103,7 @@
     <ion-row>
       <ion-col col-12>
         <br>[기출풀기]<br><br>
-        <ion-title class="text-primary">{{title.val}}</ion-title><br>
+        <h3 class="text-primary">{{title.val}}</h3><br>
       </ion-col>
     </ion-row>
   </ion-grid>

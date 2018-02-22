@@ -4,14 +4,17 @@ page-keyword {
     .btn-top-border {border-top: 2px solid map-get($colors, primary);}
     ::-webkit-scrollbar { display: none; }
     .searchbar-md .searchbar-search-icon, .searchbar-md .searchbar-md-cancel {display: none;}
-    .searchbar-md .searchbar-input {padding: 6px 15px;}
+    .searchbar-md .searchbar-input {padding: 6px 35px 6px 15px;}
     .bg-primary {background-color: map-get($colors, primary);}
     .bg-primary .icon {color: #fafafa;}
     .searchbar-md .searchbar-input {border-top-right-radius: 0; border-bottom-right-radius: 0;}
-    .label {margin: 13px 0;}
-    .btn-search {display: inline-block; border: 1px solid #fafafa;border-top-right-radius: 2px; border-bottom-right-radius: 2px;}
+    .label {margin: 8px 0 4px;}
+    .btn-search {display: inline-block; border: 1px solid #fafafa; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 2px;}
     .btn-search .icon {padding: 11px 15px 10px 15px;}
-    .item-md.item-block .item-inner {border: none;}
+    .toolbar-content .item {padding-left: 10px;}
+    .toolbar .searchbar-md {padding: 0;}
+    .item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end] {margin: 3px 0 0;}
+    .item-md.item-block .item-inner {border: none; padding-right: 10px;}
     .header-title {padding-top: 10px;}
     .margin-0 {margin: 0 !important;}
 }

@@ -107,10 +107,7 @@ export class MyApp {
     if (page.type == 'setRoot'){
       this.nav.setRoot(page.component);
     } else {
-      let navOptions = {
-        animation: 'ios-transition'
-      };
-      this.nav.push(page.component, null, navOptions);
+      this.nav.push(page.component, null, {animation: 'ios-transition'});
     }
   }
 
