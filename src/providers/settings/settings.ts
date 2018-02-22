@@ -11,7 +11,7 @@ export class Settings {
   settings: any;
 
   _defaults: any;
-  _readyPromise: Promise<any>;
+  //_readyPromise: Promise<any>;
 
   constructor(public storage: Storage, defaults: any) {
     this._defaults = defaults;
@@ -56,10 +56,9 @@ export class Settings {
   }
 
   getValue(key: string) {
-    return this.storage.get(this.SETTINGS_KEY)
-      .then(settings => {
-        return settings[key];
-      });
+    return this.storage.get(this.SETTINGS_KEY).then(settings => {
+      return settings[key];
+    });
   }
 
   save() {

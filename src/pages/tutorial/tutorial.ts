@@ -20,6 +20,8 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
+  param = {value: '회원님'};
+
   constructor(
     public navCtrl: NavController,
     public menu: MenuController,

@@ -1,7 +1,6 @@
 import { AutocompleteDataProvider } from './../../providers/autocomplete-data/autocomplete-data';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { IonicPage } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
 import { GlobalFunction } from '../../providers/global-function';
@@ -30,14 +29,10 @@ export class KeywordPage {
   // };
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private storage: Storage,
     private minbeopPv: MinbeopProvider,
     private globalFunction: GlobalFunction,
-    private autoPv: AutocompleteDataProvider) {
-    this.globalFunction.setNavController(this.navCtrl);
-  }
+    private autoPv: AutocompleteDataProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad KeywordPage');

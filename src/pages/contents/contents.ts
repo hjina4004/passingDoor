@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
+import { IonicPage, NavParams, Navbar } from 'ionic-angular';
+
+import { TranslateService } from '@ngx-translate/core';
+import { GlobalFunction } from '../../providers/global-function';
 
 /**
  * Generated class for the ContentsPage page.
@@ -31,10 +34,11 @@ export class ContentsPage {
   range = this.navParams.get('range');
   pastPaper = this.navParams.get('pastPaper');
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
-
-  }
+  constructor(
+    private globalFunction: GlobalFunction,
+    private translate: TranslateService,
+    public navParams: NavParams
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContentsPage');
@@ -50,44 +54,60 @@ export class ContentsPage {
     }
 
     this.navbar.backButtonClick = (e:UIEvent) => {
-
-      let navOptions = {
-        animation: 'ios-transition'
-      };
-      this.navCtrl.pop({});
+      this.globalFunction.moveBack();
     }
-
   }
 
   budongsan(){
     if (this.contents){
-      this.moveTo('ContentsPaperPage', { subTitle1: this.subject.title1 });
+      this.globalFunction.moveTo('ContentsPaperPage', { subTitle1: this.subject.title1 });
     } else if (this.year){
-      this.moveTo('YearPaperPage', { subTitle1: this.subject.title1 });
+      this.globalFunction.moveTo('YearPaperPage', { subTitle1: this.subject.title1 });
     } else if (this.range){
-      this.moveTo('RangePaperPage', {});
+      // this.globalFunction.moveTo('RangePaperPage', {});
+      this.translate.get(["NOTICE_READY"]).subscribe((values) => {
+        console.log('Loaded values', values);
+        this.globalFunction.presentToast(values.NOTICE_READY, 3000);
+      });
     } else if (this.pastPaper){
-      this.moveTo('StudyPage', {});
+      this.globalFunction.moveTo('StudyPage', {});
     }
   }
 
   minbeop(){
     if (this.contents){
-      this.moveTo('ContentsPaperPage', { subTitle2: this.subject.title2 });
+      this.globalFunction.moveTo('ContentsPaperPage', { subTitle2: this.subject.title2 });
     } else if (this.year){
-      this.moveTo('YearPaperPage', { subTitle2: this.subject.title2 });
+      this.globalFunction.moveTo('YearPaperPage', { subTitle2: this.subject.title2 });
     } else if (this.range){
-      this.moveTo('RangePaperPage', {});
+      // this.globalFunction.moveTo('RangePaperPage', {});
+      this.translate.get(["NOTICE_READY"]).subscribe((values) => {
+        console.log('Loaded values', values);
+        this.globalFunction.presentToast(values.NOTICE_READY, 3000);
+      });
     } else if (this.pastPaper){
-      this.moveTo('StudyPage', {});
+      this.globalFunction.moveTo('StudyPage', {});
     }
   }
 
-  moveTo(pageName, data){
-    let navOptions = {
-      animation: 'ios-transition'
-    };
-    this.navCtrl.push(pageName, data, navOptions);
+  joonggae() {
+    this.translate.get(["NOTICE_READY"]).subscribe((values) => {
+      console.log('Loaded values', values);
+      this.globalFunction.presentToast(values.NOTICE_READY, 3000);
+    });
   }
 
+  gongbeop() {
+    this.translate.get(["NOTICE_READY"]).subscribe((values) => {
+      console.log('Loaded values', values);
+      this.globalFunction.presentToast(values.NOTICE_READY, 3000);
+    });
+  }
+
+  gongsi() {
+    this.translate.get(["NOTICE_READY"]).subscribe((values) => {
+      console.log('Loaded values', values);
+      this.globalFunction.presentToast(values.NOTICE_READY, 3000);
+    });
+  }
 }

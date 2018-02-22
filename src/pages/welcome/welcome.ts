@@ -1,4 +1,3 @@
-import { LanguageProvider } from './../../providers/language/language';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform, MenuController, ModalController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -37,13 +36,11 @@ export class WelcomePage {
     private platform: Platform,
     private menuCtrl: MenuController,
     private modalCtrl: ModalController,
-    private lang: LanguageProvider,
     private storage: Storage,
     private androidFullScreen: AndroidFullScreen,
     private globalFunction: GlobalFunction,
     private alertCtrl: AlertController) {
 
-    this.globalFunction.setNavController(this.navCtrl);
     this.platform.ready().then(() => {
       this.platform.registerBackButtonAction(() => {
         if (this.menuCtrl.isOpen()){
@@ -66,6 +63,7 @@ export class WelcomePage {
 
     this.confirm_dlg = this.alertCtrl.create({
       title: '합격문',
+      cssClass:'PD_alert',
       message: '프로그램을 종료합니다.',
       buttons: [
         {
@@ -101,7 +99,8 @@ export class WelcomePage {
 
   // content button
   keyword(){
-    this.globalFunction.moveTo('KeywordPage', {});
+    this.showConfirm();
+    // this.globalFunction.moveTo('KeywordPage', {});
   }
 
   contents1(){

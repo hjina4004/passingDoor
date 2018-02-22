@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
 import { GlobalFunction } from '../../providers/global-function';
@@ -28,12 +28,10 @@ export class KeywordResultPage {
   sKeyword = this.navParams.get('sKeyword');
 
   constructor(
-    public navCtrl: NavController,
     public navParams: NavParams,
     private globalFunction: GlobalFunction,
-    private minbeopPv: MinbeopProvider) {
-    this.globalFunction.setNavController(this.navCtrl);
-  }
+    private minbeopPv: MinbeopProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad KeywordResultPage');
@@ -59,10 +57,7 @@ export class KeywordResultPage {
     let m_key = JSON.stringify(selected_id.m_key).slice(0,-1);
 
     this.minbeopPv.getExam(m_key).then(m_keyData => {
-      let navOptions = {
-        animation: 'ios-transition'
-      };
-      this.navCtrl.push('SolvePage', { getExamData: m_keyData}, navOptions);
+      this.globalFunction.moveTo('SolvePage', {getExamData: m_keyData});
     });
   }
 

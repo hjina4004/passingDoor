@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
+import { IonicPage, NavParams, Navbar } from 'ionic-angular';
+
+import { GlobalFunction } from '../../providers/global-function';
 
 /**
  * Generated class for the SolvePage page.
@@ -26,17 +28,16 @@ export class SolvePage {
 
   getExamData = this.navParams.get('getExamData');
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    private globalFunction: GlobalFunction,
+    public navParams: NavParams
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolvePage');
 
     this.navbar.backButtonClick = (e:UIEvent) => {
-      let navOptions = {
-        animation: 'ios-transition'
-      };
-      this.navCtrl.pop(navOptions);
+      this.globalFunction.moveBack();
     }
 
     this.year = JSON.stringify(this.getExamData[0].year);
@@ -51,7 +52,13 @@ export class SolvePage {
 
       this.exam.push(pushData);
     }
-      
+
   } //ionViewDidLoad END
 
+  swipeEvent(ev) {
+    console.log("swipeEvent:", ev.direction);
+    if (ev.direction == 4) {
+      this.globalFunction.moveBack();
+    }
+  }
 }

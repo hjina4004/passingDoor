@@ -5,29 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>기출문제풀기</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content>
-
+<ion-content (swipe)="swipeEvent($event)">
   <ion-toolbar>
     <ion-row>
-
       <ion-col col-10 class="header-title">
         <ion-title>20{{year}}년 {{times}}회 {{req}}번</ion-title>
       </ion-col>
-
       <ion-col col-2 style="border: none;">
         <button ion-button menuToggle>
-            <ion-icon name="arrow-back"></ion-icon>
+          <ion-icon name="arrow-back"></ion-icon>
         </button>
       </ion-col>
-
     </ion-row>
   </ion-toolbar>
 
@@ -38,12 +31,9 @@
   <ion-label class="examTitle">{{req}}. {{examTitle}}</ion-label>
 
   <ion-list class="list">
-
     <ion-item *ngFor="let ex of exam">
       <ion-label class="text">{{ex.content}}</ion-label>
       <ion-checkbox [(ngModel)]="ex.checked"></ion-checkbox>
     </ion-item>
-
   </ion-list>
-
 </ion-content>

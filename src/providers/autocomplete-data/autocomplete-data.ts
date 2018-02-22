@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs/Rx';
 import { Storage } from '@ionic/storage';
@@ -19,7 +18,12 @@ export class AutocompleteDataProvider {
   database: SQLiteObject;
   private databaseReady: BehaviorSubject<boolean>;
 
-  constructor(public sqlitePorter: SQLitePorter, private storage: Storage, private sqlite: SQLite, private platform: Platform, private http: Http) {
+  constructor(
+    public sqlitePorter: SQLitePorter,
+    private storage: Storage,
+    private sqlite: SQLite,
+    private platform: Platform
+  ) {
     console.log('Hello AutocompleteDataProvider Provider');
 
     this.databaseReady = new BehaviorSubject(false);
@@ -138,7 +142,6 @@ export class AutocompleteDataProvider {
     }
   }
 
-
   /**
   * 검색조건 동적 SQL 가져오기
   *
@@ -214,5 +217,4 @@ export class AutocompleteDataProvider {
       return "(" + columnName + " >= '" + str + str2 + "' AND " + columnName + " < '" + str + str3 + "')";
     }
   }
-
 }

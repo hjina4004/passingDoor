@@ -26,7 +26,7 @@
   "TUTORIAL_SLIDE3_TITLE": "시작하기",
   "TUTORIAL_SLIDE3_DESCRIPTION": "도움이 필요하세요?",
 
-  "TUTORIAL_SLIDE4_TITLE": "준비 되셨습니까?",
+  "TUTORIAL_SLIDE4_TITLE": "{{value}} 준비 되셨습니까?",
 
   "WELCOME_INTRO": "족보와 기출문제로 슬기로운 공부 ~~",
 
@@ -41,6 +41,7 @@
   "SETTINGS_PAGE_PROFILE": "프로필 수정",
 
   "WELCOME_TITLE": "환영합니다",
+  "NOTICE_READY": "준비중입니다.",
 
   "LOGIN_TITLE": "로그인",
   "LOGIN_ERROR": "계정 정보를 확인하고 다시 시도하십시오.",

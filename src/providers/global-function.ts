@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ToastController, NavController } from 'ionic-angular';
+import { ToastController, App } from 'ionic-angular';
 
 
 @Injectable()
 export class GlobalFunction {
-  private navCtrl: NavController;
-
-  constructor (private toastCtrl: ToastController) {
-  }
-
-  setNavController (navCtrl) {
-    this.navCtrl = navCtrl;
-  }
+  constructor (
+    private toastCtrl: ToastController,
+    public appCtrl: App
+  ) {}
 
   // don't call any of these until this.ready resolves
   moveTo (pageName, data) {
-    this.navCtrl.push(pageName, data, {animation: 'ios-transition'});
+    this.appCtrl.getRootNav().push(pageName, data, {animation: 'ios-transition'});
   }
 
   moveBack () {
-    this.navCtrl.pop({animation: 'ios-transition', direction: 'back'});
+    this.appCtrl.getRootNav().pop({animation: 'ios-transition', direction: 'back'});
   }
 
   presentToast (msg, time) {
