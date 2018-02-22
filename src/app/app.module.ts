@@ -17,12 +17,13 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
 import { HttpModule } from '@angular/http';
- 
+
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { SQLite } from '@ionic-native/sqlite';
 import { LanguageProvider } from '../providers/language/language';
 import { MinbeopProvider } from '../providers/minbeop/minbeop';
 import { AutocompleteDataProvider } from '../providers/autocomplete-data/autocomplete-data';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -83,6 +84,7 @@ export function provideSettings(storage: Storage) {
     MemberProvider,
     LanguageProvider,
     MinbeopProvider,
+    AndroidFullScreen,
     AutocompleteDataProvider
   ]
 })

@@ -2,6 +2,7 @@ import { LanguageProvider } from './../../providers/language/language';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform, MenuController, ModalController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -38,7 +39,8 @@ export class WelcomePage {
     private modalCtrl: ModalController,
     private lang: LanguageProvider,
     private storage: Storage,
-    private aletCtrl: AlertController) {
+    private androidFullScreen: AndroidFullScreen,
+    private alertCtrl: AlertController) {
 
     this.platform.ready().then(() => {
       this.platform.registerBackButtonAction(() => {
@@ -62,12 +64,38 @@ export class WelcomePage {
           //   }]
           // })
           // alert.present();
-          alert('종료');
-          this.platform.exitApp();
+          // alert('종료');
+          this.showConfirm();
         }
       });
+
+      this.androidFullScreen.isImmersiveModeSupported()
+      .then(() => this.androidFullScreen.immersiveMode())
+      .catch((error: any) => console.log(error));
     });
   } //constructor END
+
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: '합격문',
+      message: '프로그램을 종료합니다.',
+      buttons: [
+        {
+          text: '취소',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: '확인',
+          handler: () => {
+            this.platform.exitApp();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
   ionViewDidEnter(){
     let todayDate = new Date().toISOString().slice(0,10);
