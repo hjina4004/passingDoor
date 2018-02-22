@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
+import { ToastController } from 'ionic-angular';
+
 /**
  * Generated class for the KeywordPage page.
  *
@@ -34,6 +36,7 @@ export class KeywordPage {
     public navParams: NavParams,
     private storage: Storage,
     private minbeopPv: MinbeopProvider,
+    private toastCtrl: ToastController,
     private autoPv: AutocompleteDataProvider) {
   }
 
@@ -64,10 +67,6 @@ export class KeywordPage {
     } //if END
   }
 
-  onClear(ev){
-    this.searchKeyword();
-  }
-
   searchKeyword(){
     let keyword = this.myInput.keyword.trim();
 
@@ -88,10 +87,19 @@ export class KeywordPage {
   }
 
   goNote() {
+    this.presentToast("불러 오는 중입니다.");
     this.navCtrl.push('NotePage');
   }
 
   goVideo() {
+    this.presentToast("준비 중입니다.");
+  }
 
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
   }
 }

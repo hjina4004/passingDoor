@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 
+import { ToastController } from 'ionic-angular';
+
 /**
  * Generated class for the KeywordResultPage page.
  *
@@ -25,9 +27,11 @@ export class KeywordResultPage {
   searchData = this.navParams.get('getSearchData');
   sKeyword = this.navParams.get('sKeyword');
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              private minbeopPv: MinbeopProvider) {
+  constructor(
+    public navCtrl: NavController,
+    private toastCtrl: ToastController,
+    public navParams: NavParams,
+    private minbeopPv: MinbeopProvider) {
   }
 
   ionViewDidLoad() {
@@ -49,9 +53,25 @@ export class KeywordResultPage {
     this.minbeopPv.getExam(m_key).then(m_keyData => {
       let navOptions = {
         animation: 'ios-transition'
-      }; 
+      };
       this.navCtrl.push('SolvePage', { getExamData: m_keyData}, navOptions);
     });
   }
 
+  goNote() {
+    this.presentToast("불러 오는 중입니다.");
+    this.navCtrl.push('NotePage');
+  }
+
+  goVideo() {
+    this.presentToast("준비 중입니다.");
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
 }

@@ -7,11 +7,11 @@ page-keyword {
     .searchbar-md .searchbar-input {padding: 6px 15px;}
     .bg-primary {background-color: map-get($colors, primary);}
     .bg-primary .icon {color: #fafafa;}
-    .searchbar-md .searchbar-input {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
+    .searchbar-md .searchbar-input {border-top-right-radius: 0; border-bottom-right-radius: 0;}
     .label {margin: 13px 0;}
     .btn-search {display: inline-block; border: 1px solid #fafafa;border-top-right-radius: 2px; border-bottom-right-radius: 2px;}
     .btn-search .icon {padding: 11px 15px 10px 15px;}
+    .item-md.item-block .item-inner {border: none;}
+    .header-title {padding-top: 10px;}
+    .margin-0 {margin: 0 !important;}
 }

@@ -4,6 +4,8 @@ import { IonicPage, NavController, Platform, MenuController, ModalController, Al
 import { Storage } from '@ionic/storage';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
+import { ToastController } from 'ionic-angular';
+
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -18,6 +20,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 export class WelcomePage {
 
   title = "";
+  confirm_dlg = null;
 
   isViewEvent =  {
     view: 'false'
@@ -40,6 +43,7 @@ export class WelcomePage {
     private lang: LanguageProvider,
     private storage: Storage,
     private androidFullScreen: AndroidFullScreen,
+    private toastCtrl: ToastController,
     private alertCtrl: AlertController) {
 
     this.platform.ready().then(() => {
@@ -76,7 +80,9 @@ export class WelcomePage {
   } //constructor END
 
   showConfirm() {
-    let confirm = this.alertCtrl.create({
+    if (this.confirm_dlg != null) return;
+
+    this.confirm_dlg = this.alertCtrl.create({
       title: '합격문',
       message: '프로그램을 종료합니다.',
       buttons: [
@@ -84,6 +90,7 @@ export class WelcomePage {
           text: '취소',
           handler: () => {
             console.log('Disagree clicked');
+            this.confirm_dlg = null;
           }
         },
         {
@@ -94,7 +101,7 @@ export class WelcomePage {
         }
       ]
     });
-    confirm.present();
+    this.confirm_dlg.present();
   }
 
   ionViewDidEnter(){
@@ -150,4 +157,15 @@ export class WelcomePage {
     this.navCtrl.push(pageName, data, {});
   }
 
+  everyday() {
+    this.presentToast("준비 중입니다.");
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
 }

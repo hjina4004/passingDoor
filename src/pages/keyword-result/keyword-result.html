@@ -4,6 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<!--
 <ion-header>
 
   <ion-toolbar>
@@ -23,9 +24,40 @@
   </ion-toolbar>
 
 </ion-header>
+-->
+<ion-header no-border>
 
-<ion-content padding>
+  <ion-toolbar>
+    <ion-row>
 
+      <ion-col col-4>
+        <button ion-button menuToggle>
+          <img src="assets/img/ic_06.png">
+        </button>
+      </ion-col>
+
+      <ion-col col-4 class="header-title">
+        <ion-title>합격문</ion-title>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-buttons end>
+          <button ion-button default>
+            <img class="margin-0" src="assets/img/ic_07.png">
+          </button>
+          <button ion-button default (click)="memberInfo()">
+            <img class="margin-0" src="assets/img/ic_24.png">
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+<!--
   <ion-grid>
     <ion-row class="search">
         <ion-col col-10 class="searchbar">
@@ -42,32 +74,56 @@
         </ion-col>
     </ion-row>
   </ion-grid>
-
+-->
+  <ion-item class="bg-primary">
+    <ion-searchbar
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)"
+      placeholder="키워드를 입력하세요.">
+    </ion-searchbar>
+    <div class="btn-search" (click)="searchKeyword()" item-end><ion-icon name="search"></ion-icon></div>
+  </ion-item>
+<!--
   <ion-grid>
     <ion-row>
         <ion-col style="text-align: center"><button ion-button default (click)="note()"><ion-icon name="create"></ion-icon>노트</button></ion-col>
         <ion-col style="text-align: center"><button ion-button default (click)="video()"><ion-icon name="easel"></ion-icon>동영상</button></ion-col>
     </ion-row>
   </ion-grid>
+-->
+  <ion-grid>
+    <ion-row>
+      <ion-col><button ion-button block clear (click)="goNote()"><img src="assets/img/ic_26.png">노트</button></ion-col>
+      <ion-col><button ion-button block clear (click)="goVideo()"><img src="assets/img/ic_25.png">동영상</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="btn-gray btn-top-border">기출문제 전체 풀기</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="btn-gray">학습하기</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <br>[기출풀기]<br><br>
+        <ion-title class="text-primary">{{title.val}}</ion-title><br>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <br>
-
-  [기출풀기]
-  <br><br>
-  <ion-title>{{title.val}}</ion-title>
-  <br>
   <ion-list>
-
+    <!--
     <button class="button-size button-padding" ion-button block (click)="wholeSolve()">
-        <span class="button-inner">기출문제 전체 풀기</span>    
+        <span class="button-inner">기출문제 전체 풀기</span>
         <ion-icon name="arrow-forward"></ion-icon>
     </button>
 
     <button class="button-size button-padding" ion-button block (click)="learn()">
-        <span class="button-inner">학습하기</span>    
+        <span class="button-inner">학습하기</span>
         <ion-icon name="arrow-forward"></ion-icon>
     </button>
-
+    -->
     <ion-item *ngFor="let min of minbeop" (click)="solve(min)">
       <span>20{{ min.year }}년 {{min.times}}회 {{min.req}}번</span>
     </ion-item>
