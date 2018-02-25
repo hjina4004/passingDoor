@@ -22,7 +22,8 @@ export class KeywordResultPage {
     val: ''
   };
 
-  minbeop = [];
+  minbeop = [
+  ];
 
   searchData = this.navParams.get('getSearchData');
   sKeyword = this.navParams.get('sKeyword');

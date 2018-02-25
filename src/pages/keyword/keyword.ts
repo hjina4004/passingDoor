@@ -21,12 +21,18 @@ import { GlobalFunction } from '../../providers/global-function';
 export class KeywordPage {
   myInput = {keyword:""};
 
-  searchResult;
-
-  // loginInfo = {
-  //   user_id: '',
-  //   token_id: ''
-  // };
+  searchResult = [
+    // {searchWord: "(민법) 부동산 물권 변동"},
+    // {searchWord: "(민법) 유치권"},
+    // {searchWord: "(학개론) 부동산의 특성"},
+    // {searchWord: "(학개론) 수요변화의 요인"},
+    // {searchWord: "(중개사법) 정책 심의 위원회"},
+    // {searchWord: "(중개사법) 개설 등록 기준"},
+    // {searchWord: "(공법) 기반 시설 종류"},
+    // {searchWord: "(공법) 지역 주택 조합"},
+    // {searchWord: "(공사법) 지목의 종류"},
+    // {searchWord: "(공사법) 지목의 종류 2"}
+  ];
 
   constructor(
     private minbeopPv: MinbeopProvider,
@@ -36,20 +42,6 @@ export class KeywordPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad KeywordPage');
-
-
-    // var dataPromise = this.storage.get('member_id');
-
-    // dataPromise.then(data => {
-    //   if(data){
-    //     this.storage.get('tokenid').then( dataToken =>{
-    //       this.loginInfo.user_id = data + '님 환영합니다.';
-    //       this.loginInfo.token_id = dataToken;
-    //     });
-    //   } else {
-    //     this.loginInfo.user_id = '게스트입니다.';
-    //   }
-    // });
   } //ionViewDidLoad END
 
   swipeEvent(ev) {
@@ -73,6 +65,7 @@ export class KeywordPage {
 
     if (keyword === undefined || keyword == ''){
       this.globalFunction.presentToast('keyword를 입력해주세요', 3000);
+      // this.globalFunction.moveTo('KeywordResultPage', { getSearchData: [], sKeyword: "test: keyword" });
     } else {
       this.minbeopPv.searchMinbeop(keyword).then(keywordData => {
         this.globalFunction.moveTo('KeywordResultPage', { getSearchData: keywordData, sKeyword: keyword });
