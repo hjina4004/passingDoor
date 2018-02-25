@@ -1,5 +1,4 @@
 <ion-content class="home-background">
-  <span ion-fixed style="height: 100%; width: 100%">
   <ion-item hidden>
     <ion-input type="text" [(ngModel)]="page.val1" name="contents"></ion-input>
     <ion-input type="text" [(ngModel)]="page.val2" name="year"></ion-input>
@@ -7,68 +6,66 @@
     <ion-input type="text" [(ngModel)]="page.val4" name="year"></ion-input>
   </ion-item>
 
-  <div class="title"></div>
-
-  <ion-grid>
+  <ion-grid class="home-menu">
     <ion-row>
       <ion-col col-12>
-        <div class="btn" (click)="keyword()">
-          <div class="btn-icon"><ion-icon name="custom-search"></ion-icon></div>
-          <span class="btn-inner">키워드별 기출문제</span>
-        </div>
+        <button ion-button icon-start clear block (click)="keyword()">
+          <ion-icon name="mico-search"></ion-icon>키워드별 기출문제
+        </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>
-        <div class="btn" (click)="contents1()">
-          <div class="btn-icon"><img src="assets/img/ic_11.png" /></div>
-          <span class="btn-inner">목차별 기출문제</span>
-        </div>
+        <button ion-button icon-start clear block (click)="contents1()">
+          <ion-icon name="mico-items"></ion-icon>목차별 기출문제
+        </button>
       </ion-col>
       <ion-col col-6>
-        <div class="btn" (click)="contents2()">
-          <div class="btn-icon"><img src="assets/img/ic_12.png" /></div>
-          <span class="btn-inner">년도별 기출문제</span>
-        </div>
+        <button ion-button icon-start clear block (click)="contents2()">
+          <ion-icon name="mico-calendar-year"></ion-icon>년도별 기출문제
+        </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>
-        <div class="btn" (click)="contents3()">
-          <div class="btn-icon"><ion-icon name="custom-book"></ion-icon></div>
-          <span class="btn-inner">범위별 기출문제</span>
-        </div>
+        <button ion-button icon-start clear block (click)="contents3()">
+          <ion-icon name="mico-book"></ion-icon>범위별 기출문제
+        </button>
       </ion-col>
       <ion-col col-6>
-        <div class="btn" (click)="everyday()">
-          <div class="btn-icon"><img src="assets/img/ic_01.png" /></div>
-          <span class="btn-inner">매일 기출문제 풀기</span>
-        </div>
+        <button ion-button icon-start clear block (click)="everyday()">
+          <ion-icon name="mico-calendar-day"></ion-icon>매일 기출문제
+        </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
-        <div class="btn" (click)="contents4()">
-          <div class="btn-icon"><img src="assets/img/ic_13.png" /></div>
-          <span class="btn-inner">족보로 공부하기</span>
-        </div>
+        <button ion-button icon-start clear block (click)="contents4()">
+          <ion-icon name="mico-note"></ion-icon>족보로 공부하기
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  </span>
 </ion-content>
 
 <ion-footer>
   <ion-grid>
     <ion-row>
-      <ion-col (click)="notice()" class="text-center color-footer">
-        <img class="footer-img" src="assets/img/ic_09.png" />공지사항
+      <ion-col>
+        <button ion-button icon-start clear block (click)="notice()">
+          <ion-icon name="mico-megaphone"></ion-icon>공지사항
+        </button>
       </ion-col>
-      <ion-col (click)="login()" class="text-center color-footer">
-        <img class="footer-img" src="assets/img/ic_10.png" />로그인
+      <ion-col>
+        <button ion-button icon-start clear block (click)="login()">
+          <ion-icon name="mico-user"></ion-icon>로그인
+        </button>
       </ion-col>
-      <ion-col (click)="howtouse()" class="text-center color-footer">
-        <img class="footer-img" src="assets/img/ic_08.png" />이용방법
+      <ion-col>
+        <button ion-button icon-start clear block (click)="howtouse()">
+          <ion-icon name="mico-question-circle"></ion-icon>
+          <div>이용방법</div>
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

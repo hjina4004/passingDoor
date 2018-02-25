@@ -99,8 +99,7 @@ export class WelcomePage {
 
   // content button
   keyword(){
-    this.showConfirm();
-    // this.globalFunction.moveTo('KeywordPage', {});
+    this.globalFunction.moveTo('KeywordPage', {});
   }
 
   contents1(){

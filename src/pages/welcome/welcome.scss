@@ -1,15 +1,14 @@
 page-welcome {
-  .title{ border: 0px solid; height: 200px; }
   ::-webkit-scrollbar { display: none; }
-  .btn{ width: 100%; height: 70px; padding-left: 15px; position: relative; display: table; background-color: #3e4885; }
-  .btn-icon{ width: 32px; height: 100%; vertical-align: middle; display: table-cell; }
-  .btn-icon>.icon{color: #fafafa;}
-  .btn-inner{ width: calc(100% - 50px); height: 100%; padding-left: 10px; vertical-align: middle; color: #ffffff; font-size: 10pt; display: table-cell; }
+  .home-menu {
+    margin-top: 200px;
+    .button-block-md{ width: 100%; height: 70px; background-color: #3e4885; color: $text-color-white; }
+    .button-inner{justify-content: flex-start; .icon{margin-right: 10px;}}
+  }
   .home-background {
     background-image: url('../assets/img/a003_bg.jpg');
     background-size: 100% 100%;
   }
-  .footer-img {width: 24px; height: auto; display: block; margin: 0 auto 10px;}
-  .text-center {text-align: center;}
-  .color-footer {color: #f2631f;}
+  .col {padding-bottom: 0;}
+  ion-footer {.button-clear-md {height: 48px; .button-inner {color: map-get($colors, accent); flex-direction: column;}}}
 }

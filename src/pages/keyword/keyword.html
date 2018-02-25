@@ -1,25 +1,9 @@
-<!--
-<ion-header>
-  <ion-buttons start>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-buttons>
-
-  <ion-buttons end>
-    <button ion-button>
-      <ion-icon name="grid"></ion-icon>
-    </button>
-    <img alt="logo" width="30" height="30" src="assets/img/hi.PNG" >
-  </ion-buttons>
-</ion-header>
--->
 <ion-header no-border>
   <ion-toolbar>
     <ion-row>
       <ion-col col-4>
         <button ion-button menuToggle>
-          <img src="assets/img/ic_06.png">
+          <ion-icon name="mico-bars"></ion-icon>
         </button>
       </ion-col>
       <ion-col col-4 class="header-title">
@@ -28,10 +12,10 @@
       <ion-col col-4>
         <ion-buttons end>
           <button ion-button default>
-            <img class="margin-0" src="assets/img/ic_07.png">
+            <ion-icon name="mico-app"></ion-icon>
           </button>
           <button ion-button default (click)="memberInfo()">
-            <img class="margin-0" src="assets/img/ic_24.png">
+            <ion-icon name="mico-user-bold"></ion-icon>
           </button>
         </ion-buttons>
       </ion-col>
@@ -45,63 +29,18 @@
           (ionCancel)="onCancel($event)"
           placeholder="키워드를 입력하세요.">
         </ion-searchbar>
-        <div class="btn-search" (click)="searchKeyword()" item-end><ion-icon name="search"></ion-icon></div>
+        <div item-end><button ion-button clear (click)="searchKeyword()"><ion-icon name="mico-search-flat"></ion-icon></button></div>
       </ion-item>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content (swipe)="swipeEvent($event)">
-
-  <!-- <ion-item>
-    <ion-label>id : {{ loginInfo.user_id }}</ion-label>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>token id : {{ loginInfo.token_id }}</ion-label>
-  </ion-item> -->
-
-  <!--
-  <ion-grid>
-    <ion-row class="search">
-        <ion-col col-10 class="searchbar">
-            <ion-searchbar
-              [(ngModel)]="myInput.keyword"
-              [showCancelButton]="shouldShowCancel"
-              (ionInput)="onInput($event)"
-              (ionCancel)="onCancel($event)"
-              placeholder="키워드를 입력하세요.">
-            </ion-searchbar>
-        </ion-col>
-        <ion-col col-2 class="searchBtn">
-          <button ion-button default (click)="searchKeyword()"><ion-icon name="search"></ion-icon></button>
-        </ion-col>
-    </ion-row>
+<ion-content>
+  <div class="swipe-content" (swipe)="swipeEvent($event)">
     <ion-list>
       <ion-item *ngFor="let rlt of searchResult" (click)="goSearch(rlt)">
         {{rlt.searchWord}}
       </ion-item>
     </ion-list>
-  </ion-grid>
-  -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col><button ion-button block clear (click)="goNote()"><img src="assets/img/ic_26.png">노트</button></ion-col>
-      <ion-col><button ion-button block clear (click)="goVideo()"><img src="assets/img/ic_25.png">동영상</button></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12 class="btn-gray btn-top-border">기출문제 전체 풀기</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12 class="btn-gray">학습하기</ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-list>
-    <ion-item *ngFor="let rlt of searchResult" (click)="goSearch(rlt)">
-      {{rlt.searchWord}}
-    </ion-item>
-  </ion-list>
-
+  </div>
 </ion-content>
