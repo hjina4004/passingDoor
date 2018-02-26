@@ -20,8 +20,6 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  param = {value: '회원님'};
-
   constructor(
     public navCtrl: NavController,
     public menu: MenuController,
@@ -32,40 +30,35 @@ export class TutorialPage {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
-    ]).subscribe(
-      (values) => {
-        console.log('Loaded values', values);
-        this.slides = [
-          {
-            title: values.TUTORIAL_SLIDE1_TITLE,
-            description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-            image: 'assets/img/tu-slidebox-img-1.jpg',
-          }
-        ];
-      });
-      this.androidFullScreen.isImmersiveModeSupported()
-      .then(() => this.androidFullScreen.immersiveMode())
-      .catch((error: any) => console.log(error));
-    }
+    ]).subscribe((values) => {
+      this.slides = [
+        {
+          title: values.TUTORIAL_SLIDE1_TITLE,
+          description: values.TUTORIAL_SLIDE1_DESCRIPTION,
+          image: 'assets/img/tu-slidebox-img-1.jpg',
+        }
+      ];
+    });
 
-    startApp() {
-      this.navCtrl.setRoot('WelcomePage', {}, {
-        animate: true,
-        direction: 'forward'
-      });
-    }
-
-    onSlideChangeStart(slider) {
-      this.showSkip = !slider.isEnd();
-    }
-
-    ionViewDidEnter() {
-      // the root left menu should be disabled on the tutorial page
-      this.menu.enable(false);
-    }
-
-    ionViewWillLeave() {
-      // enable the root left menu when leaving the tutorial page
-      this.menu.enable(true);
-    }
+    this.androidFullScreen.isImmersiveModeSupported().then(() => this.androidFullScreen.immersiveMode())
+    .catch((error: any) => console.log(error));
   }
+
+  startApp() {
+    this.navCtrl.setRoot('WelcomePage', {}, {});
+  }
+
+  onSlideChangeStart(slider) {
+    this.showSkip = !slider.isEnd();
+  }
+
+  ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+  }
+}

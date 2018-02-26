@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.lmfriends.passingdoor" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>합격문</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>족보, 기출문제 기반의 공부플랫폼</description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">© 2018 가문의 영광</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -45,10 +45,7 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
-    <allow-navigation href="http://192.168.10.140:8100" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="~7.0.0" />
-    <allow-navigation href="http://192.168.10.182:8100" />
     <plugin name="cordova-plugin-fullscreen" spec="^1.2.0" />
-    <allow-navigation href="http://192.168.35.41:8100" />
 </widget>

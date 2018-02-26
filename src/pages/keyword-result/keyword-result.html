@@ -7,7 +7,7 @@
         </button>
       </ion-col>
       <ion-col col-4>
-        <ion-title>합격문</ion-title>
+        <ion-title>{{ 'APP_NAME' | translate }}</ion-title>
       </ion-col>
       <ion-col col-4>
         <ion-buttons end>
@@ -27,7 +27,7 @@
           [showCancelButton]="shouldShowCancel"
           (ionInput)="onInput($event)"
           (ionCancel)="onCancel($event)"
-          placeholder="키워드를 입력하세요.">
+          placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}">
         </ion-searchbar>
         <div item-end><button ion-button clear (click)="searchKeyword()"><ion-icon name="mico-search-flat"></ion-icon></button></div>
       </ion-item>
@@ -39,26 +39,21 @@
   <div class="swipe-content" (swipe)="swipeEvent($event)">
     <ion-grid>
       <ion-row>
-        <ion-col><button ion-button block clear (click)="goNote()"><ion-icon name="mico-editor"></ion-icon>노트</button></ion-col>
-        <ion-col><button ion-button block clear (click)="goVideo()"><ion-icon name="mico-play-circle"></ion-icon>동영상</button></ion-col>
+        <ion-col><button ion-button block clear (click)="goNote()"><ion-icon name="mico-editor"></ion-icon>{{ 'BTN_NOTE' | translate }}</button></ion-col>
+        <ion-col><button ion-button block clear (click)="goVideo()"><ion-icon name="mico-play-circle"></ion-icon>{{ 'BTN_MOVIE' | translate }}</button></ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12><button ion-button full clear class="btn-gray btn-top-border">기출문제 전체 풀기</button></ion-col>
+        <ion-col col-12><button ion-button full clear class="btn-gray btn-top-border">{{ 'BTN_TOTAL_QUESTION' | translate }}</button></ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12><button ion-button full clear class="btn-gray">학습하기</button></ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <br>[기출풀기]<br><br>
-          <h3 class="text-primary">{{title.val}}</h3><br>
-        </ion-col>
+        <ion-col col-12><button ion-button full clear class="btn-gray">{{ 'BTN_STUDY' | translate }}</button></ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-list>
+    <ion-list inset>
+      <ion-list-header>{{sKeyword}}</ion-list-header>
       <ion-item *ngFor="let min of minbeop" (click)="solve(min)">
-        <span>20{{ min.year }}년 {{min.times}}회 {{min.req}}번</span>
+        <span>{{ 'QUESTIONS_TITLE_FORMAT' | translate:min }}</span>
       </ion-item>
     </ion-list>
   </div>

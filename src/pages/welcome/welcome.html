@@ -10,38 +10,38 @@
     <ion-row>
       <ion-col col-12>
         <button ion-button icon-start clear block (click)="keyword()">
-          <ion-icon name="mico-search"></ion-icon>키워드별 기출문제
+          <ion-icon name="mico-search"></ion-icon>{{ 'ITEM_BY_KEYWORD' | translate }}
         </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>
         <button ion-button icon-start clear block (click)="contents1()">
-          <ion-icon name="mico-items"></ion-icon>목차별 기출문제
+          <ion-icon name="mico-items"></ion-icon>{{ 'ITEM_BY_CONTENTS' | translate }}
         </button>
       </ion-col>
       <ion-col col-6>
         <button ion-button icon-start clear block (click)="contents2()">
-          <ion-icon name="mico-calendar-year"></ion-icon>년도별 기출문제
+          <ion-icon name="mico-calendar-year"></ion-icon>{{ 'ITEM_BY_YEAR' | translate }}
         </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>
         <button ion-button icon-start clear block (click)="contents3()">
-          <ion-icon name="mico-book"></ion-icon>범위별 기출문제
+          <ion-icon name="mico-book"></ion-icon>{{ 'ITEM_BY_RANGE' | translate }}
         </button>
       </ion-col>
       <ion-col col-6>
         <button ion-button icon-start clear block (click)="everyday()">
-          <ion-icon name="mico-calendar-day"></ion-icon>매일 기출문제
+          <ion-icon name="mico-calendar-day"></ion-icon>{{ 'ITEM_BY_DAY' | translate }}
         </button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <button ion-button icon-start clear block (click)="contents4()">
-          <ion-icon name="mico-note"></ion-icon>족보로 공부하기
+          <ion-icon name="mico-note"></ion-icon>{{ 'ITEM_BY_NOTE' | translate }}
         </button>
       </ion-col>
     </ion-row>
@@ -53,18 +53,17 @@
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear block (click)="notice()">
-          <ion-icon name="mico-megaphone"></ion-icon>공지사항
+          <ion-icon name="mico-megaphone"></ion-icon>{{ 'NOTICE_TITLE' | translate }}
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-start clear block (click)="login()">
-          <ion-icon name="mico-user"></ion-icon>로그인
+          <ion-icon name="mico-user"></ion-icon>{{ 'LOGIN_TITLE' | translate }}
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-start clear block (click)="howtouse()">
-          <ion-icon name="mico-question-circle"></ion-icon>
-          <div>이용방법</div>
+          <ion-icon name="mico-question-circle"></ion-icon>{{ 'USAGE_TITLE' | translate }}
         </button>
       </ion-col>
     </ion-row>

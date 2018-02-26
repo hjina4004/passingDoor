@@ -24,30 +24,30 @@ ion-icon {
     height: 32px;
   }
 
-  &[class*="mico-calendar-day"] { mask-image: url(../assets/icon/ic_01.svg); }
-  &[class*="mico-play-circle"] { mask-image: url(../assets/icon/ic_02.svg); }
-  &[class*="mico-chevron-right"] { mask-image: url(../assets/icon/ic_03.svg); }
-  &[class*="mico-close-circle"] { mask-image: url(../assets/icon/ic_05.svg); }
-  &[class*="mico-bars"] { mask-image: url(../assets/icon/ic_06.svg); }
-  &[class*="mico-app"] { mask-image: url(../assets/icon/ic_07.svg); }
-  &[class*="mico-question-circle"] { mask-image: url(../assets/icon/ic_08.svg); }
-  &[class*="mico-megaphone"] { mask-image: url(../assets/icon/ic_09.svg); }
-  &[class*="mico-user"] { mask-image: url(../assets/icon/ic_10.svg); }
-  &[class*="mico-user-bold"]   { mask-image: url(../assets/icon/ic_18.svg); }
-  &[class*="mico-items"] { mask-image: url(../assets/icon/ic_11.svg); }
-  &[class*="mico-calendar-year"] { mask-image: url(../assets/icon/ic_12.svg); }
-  &[class*="mico-note"] { mask-image: url(../assets/icon/ic_13.svg); }
-  &[class*="mico-key"] { mask-image: url(../assets/icon/ic_14.svg); }
-  &[class*="mico-book"]   { mask-image: url(../assets/icon/ic_15.svg); }
-  &[class*="mico-editor"] { mask-image: url(../assets/icon/ic_16.svg); }
-  &[class*="mico-books"] { mask-image: url(../assets/icon/ic_17.svg); }
-  &[class*="mico-check-circle"]   { mask-image: url(../assets/icon/ic_19.svg); }
-  &[class*="mico-search"]   { mask-image: url(../assets/icon/ic_20.svg); }
-  &[class*="mico-search-flat"] { mask-image: url(../assets/icon/ic_04.svg); }
-  &[class*="mico-chevron-left"]   { mask-image: url(../assets/icon/ic_21.svg); }
-  &[class*="mico-chevron-down"]   { mask-image: url(../assets/icon/ic_22.svg); }
-  &[class*="mico-caret-down"]   { mask-image: url(../assets/icon/ic_23.svg); }
-  &[class*="mico-caret-up"]   { mask-image: url(../assets/icon/ic_24.svg); }
+  &[class*="mico-calendar-day"] { mask-image: url(../assets/icon/svg_ic_001.svg); }
+  &[class*="mico-play-circle"] { mask-image: url(../assets/icon/svg_ic_002.svg); }
+  &[class*="mico-chevron-right"] { mask-image: url(../assets/icon/svg_ic_003.svg); }
+  &[class*="mico-close-circle"] { mask-image: url(../assets/icon/svg_ic_005.svg); }
+  &[class*="mico-bars"] { mask-image: url(../assets/icon/svg_ic_006.svg); }
+  &[class*="mico-app"] { mask-image: url(../assets/icon/svg_ic_007.svg); }
+  &[class*="mico-question-circle"] { mask-image: url(../assets/icon/svg_ic_008.svg); }
+  &[class*="mico-megaphone"] { mask-image: url(../assets/icon/svg_ic_009.svg); }
+  &[class*="mico-user"] { mask-image: url(../assets/icon/svg_ic_010.svg); }
+  &[class*="mico-user-bold"]   { mask-image: url(../assets/icon/svg_ic_018.svg); }
+  &[class*="mico-items"] { mask-image: url(../assets/icon/svg_ic_011.svg); }
+  &[class*="mico-calendar-year"] { mask-image: url(../assets/icon/svg_ic_012.svg); }
+  &[class*="mico-note"] { mask-image: url(../assets/icon/svg_ic_013.svg); }
+  &[class*="mico-key"] { mask-image: url(../assets/icon/svg_ic_014.svg); }
+  &[class*="mico-book"]   { mask-image: url(../assets/icon/svg_ic_015.svg); }
+  &[class*="mico-editor"] { mask-image: url(../assets/icon/svg_ic_016.svg); }
+  &[class*="mico-books"] { mask-image: url(../assets/icon/svg_ic_017.svg); }
+  &[class*="mico-check-circle"]   { mask-image: url(../assets/icon/svg_ic_019.svg); }
+  &[class*="mico-search"]   { mask-image: url(../assets/icon/svg_ic_020.svg); }
+  &[class*="mico-search-flat"] { mask-image: url(../assets/icon/svg_ic_004.svg); }
+  &[class*="mico-chevron-left"]   { mask-image: url(../assets/icon/svg_ic_021.svg); }
+  &[class*="mico-chevron-down"]   { mask-image: url(../assets/icon/svg_ic_022.svg); }
+  &[class*="mico-caret-down"]   { mask-image: url(../assets/icon/svg_ic_023.svg); }
+  &[class*="mico-caret-up"]   { mask-image: url(../assets/icon/svg_ic_024.svg); }
 }
 
 ion-header {

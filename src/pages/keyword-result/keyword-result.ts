@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
+import { TranslateService } from '@ngx-translate/core';
 
 import { GlobalFunction } from '../../providers/global-function';
 
@@ -18,28 +19,26 @@ import { GlobalFunction } from '../../providers/global-function';
 })
 export class KeywordResultPage {
 
-  title = {
-    val: ''
-  };
-
-  minbeop = [
-  ];
+  title = null;
+  minbeop = null;
 
   searchData = this.navParams.get('getSearchData');
   sKeyword = this.navParams.get('sKeyword');
 
   constructor(
     public navParams: NavParams,
+    private translate: TranslateService,
     private globalFunction: GlobalFunction,
     private minbeopPv: MinbeopProvider
-  ) {}
+  ) {
+    this.translate.get([
+      "SEARCH_PLACEHOLDER",
+      "NOTICE_READY"
+    ]).subscribe((values) => {this.title = values});
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad KeywordResultPage');
-
-    // title keyword
-    this.title.val = this.sKeyword;
-    // this.title.val = '법';
 
     //input search data
     this.minbeop = this.searchData;
@@ -67,6 +66,6 @@ export class KeywordResultPage {
   }
 
   goVideo() {
-    this.globalFunction.presentToast("준비 중입니다.", 3000);
+    this.globalFunction.presentToast(this.title.NOTICE_READY, 3000);
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform, MenuController, ModalController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { TranslateService } from '@ngx-translate/core';
 
 import { GlobalFunction } from '../../providers/global-function';
 
@@ -17,7 +17,7 @@ import { GlobalFunction } from '../../providers/global-function';
   templateUrl: 'welcome.html'
 })
 export class WelcomePage {
-  title = "";
+  title = null;
   confirm_dlg = null;
 
   isViewEvent =  {
@@ -34,10 +34,10 @@ export class WelcomePage {
   constructor(
     public navCtrl: NavController,
     private platform: Platform,
+    private translate: TranslateService,
     private menuCtrl: MenuController,
     private modalCtrl: ModalController,
     private storage: Storage,
-    private androidFullScreen: AndroidFullScreen,
     private globalFunction: GlobalFunction,
     private alertCtrl: AlertController) {
 
@@ -48,32 +48,40 @@ export class WelcomePage {
         } else if (this.navCtrl.canGoBack()){
           this.globalFunction.moveBack();
         } else {
-          this.showConfirm();
+          this.confirmExitApp();
         }
       });
-
-      this.androidFullScreen.isImmersiveModeSupported()
-      .then(() => this.androidFullScreen.immersiveMode())
-      .catch((error: any) => console.log(error));
     });
+
+    this.translate.get([
+      "APP_NAME",
+      "NOTICE_EXIT_APP",
+      "OK_BUTTON",
+      "CANCEL_BUTTON",
+      "NOTICE_READY"
+    ]).subscribe((values) => {this.title = values});
   } //constructor END
 
-  showConfirm() {
+  ionViewDidEnter(){
+    // this.viewServiceEvent();
+  }
+
+  confirmExitApp() {
     if (this.confirm_dlg != null) return;
 
     this.confirm_dlg = this.alertCtrl.create({
-      title: '합격문',
+      title: this.title.APP_NAME,
       cssClass:'PD_alert',
-      message: '프로그램을 종료합니다.',
+      message: this.title.NOTICE_EXIT_APP,
       buttons: [
         {
-          text: '취소',
+          text: this.title.CANCEL_BUTTON,
           handler: () => {
             this.confirm_dlg = null;
           }
         },
         {
-          text: '확인',
+          text: this.title.OK_BUTTON,
           handler: () => {
             this.platform.exitApp();
           }
@@ -83,7 +91,7 @@ export class WelcomePage {
     this.confirm_dlg.present();
   }
 
-  ionViewDidEnter(){
+  viewServiceEvent() {
     let todayDate = new Date().toISOString().slice(0,10);
     let modal = this.modalCtrl.create('ModalPage');
 
@@ -119,7 +127,7 @@ export class WelcomePage {
   }
 
   everyday() {
-    this.globalFunction.presentToast("준비 중입니다.", 3000);
+    this.globalFunction.presentToast(this.title.NOTICE_READY, 3000);
   }
 
   // footer button

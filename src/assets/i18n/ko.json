@@ -26,7 +26,7 @@
   "TUTORIAL_SLIDE3_TITLE": "시작하기",
   "TUTORIAL_SLIDE3_DESCRIPTION": "도움이 필요하세요?",
 
-  "TUTORIAL_SLIDE4_TITLE": "{{value}} 준비 되셨습니까?",
+  "TUTORIAL_SLIDE4_TITLE": "준비 되셨습니까?",
 
   "WELCOME_INTRO": "족보와 기출문제로 슬기로운 공부 ~~",
 
@@ -41,14 +41,6 @@
   "SETTINGS_PAGE_PROFILE": "프로필 수정",
 
   "WELCOME_TITLE": "환영합니다",
-  "NOTICE_READY": "준비중입니다.",
-
-  "LOGIN_TITLE": "로그인",
-  "LOGIN_ERROR": "계정 정보를 확인하고 다시 시도하십시오.",
-  "LOGIN_BUTTON": "로그인",
-  "SIGNUP_TITLE": "회원가입",
-  "SIGNUP_ERROR": "계정을 만들 수 없습니다. 계정 정보를 확인하고 다시 시도하십시오.",
-  "SIGNUP_BUTTON": "회원가입",
 
   "LIST_MASTER_TITLE": "프로젝트",
 
@@ -59,11 +51,53 @@
   "ITEM_ABOUT_PLACEHOLDER": "설명",
 
   "DONE_BUTTON": "완료",
-  "CANCEL_BUTTON": "취소",
   "DELETE_BUTTON": "삭제",
 
   "CARDS_TITLE": "소셜",
 
   "SEARCH_TITLE": "검색",
-  "SEARCH_PLACEHOLDER": "항목 목록을 검색 예 \"홍길동\""
+
+  "APP_NAME": "합격문",
+  "NOTICE_EXIT_APP": "프로그램을 종료합니다.",
+  "NOTICE_READY": "준비중입니다.",
+
+  "OK_BUTTON": "확인",
+  "CANCEL_BUTTON": "취소",
+
+  "ITEM_BY_KEYWORD": "키워드별 기출풀기",
+  "ITEM_BY_CONTENTS": "목차별 기출풀기",
+  "ITEM_BY_YEAR": "년도별 기출풀기",
+  "ITEM_BY_RANGE": "범위별 기출풀기",
+  "ITEM_BY_DAY": "매일 기출풀기",
+  "ITEM_BY_NOTE": "[족보로 공부하기]",
+  "LOGIN_TITLE": "로그인",
+  "NOTICE_TITLE": "공지사항",
+  "USAGE_TITLE": "이용방법",
+
+  "SEARCH_PLACEHOLDER": "키워드를 입력하세요.",
+
+  "BTN_NOTE": "노트",
+  "BTN_MOVIE": "동영상",
+  "BTN_TOTAL_QUESTION": "기출문제 전체 풀기",
+  "BTN_STUDY": "학습하기",
+
+  "SUBJECT_1": "부동산학개론",
+  "SUBJECT_2": "민법 및 민사특별법",
+  "SUBJECT_3": "중개사법령 및 실무",
+  "SUBJECT_4": "부동산 공법",
+  "SUBJECT_5": "공시법 및 세법",
+
+  "SUBJECT_1_SHORT": "학개론",
+  "SUBJECT_2_SHORT": "민법",
+  "SUBJECT_3_SHORT": "중개사법",
+  "SUBJECT_4_SHORT": "공법",
+  "SUBJECT_5_SHORT": "공시법",
+
+  "QUESTIONS_TITLE_FORMAT": "20{{year}}년 {{times}}회 {{req}}번 {{keyword}}",
+
+  "LOGIN_ERROR": "계정 정보를 확인하고 다시 시도하십시오.",
+  "LOGIN_BUTTON": "로그인",
+  "SIGNUP_TITLE": "회원가입",
+  "SIGNUP_ERROR": "계정을 만들 수 없습니다. 계정 정보를 확인하고 다시 시도하십시오.",
+  "SIGNUP_BUTTON": "회원가입"
 }

@@ -7,7 +7,7 @@
         </button>
       </ion-col>
       <ion-col col-4>
-        <ion-title>합격문</ion-title>
+        <ion-title>{{ 'APP_NAME' | translate }}</ion-title>
       </ion-col>
       <ion-col col-4>
         <ion-buttons end>
@@ -27,7 +27,7 @@
           [showCancelButton]="shouldShowCancel"
           (ionInput)="onInput($event)"
           (ionCancel)="onCancel($event)"
-          placeholder="키워드를 입력하세요.">
+          placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}">
         </ion-searchbar>
         <div item-end><button ion-button clear (click)="searchKeyword()"><ion-icon name="mico-search-flat"></ion-icon></button></div>
       </ion-item>
