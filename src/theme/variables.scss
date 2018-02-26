@@ -51,6 +51,7 @@ $toolbar-md-title-text-color: $text-color-white;
 $searchbar-md-input-box-shadow: none;
 $searchbar-md-input-placeholder-color:  map-get($colors, accent);
 $searchbar-md-input-clear-icon-color:   map-get($colors, accent);
+$searchbar-md-input-clear-icon-svg:   	"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='" + $searchbar-md-input-clear-icon-color + "' d='M256.328 22.863c129.414 0 234.698 104.903 234.698 233.847 0 128.944-105.284 233.846-234.698 233.846-129.413 0-234.699-104.902-234.699-233.846 0-128.944 105.286-233.847 234.699-233.847m0-21.259C114.923 1.604.293 115.818.293 256.709s114.63 255.105 256.035 255.105c141.404 0 256.035-114.214 256.035-255.105S397.731 1.604 256.328 1.604z'/><path fill='" + $searchbar-md-input-clear-icon-color + "' d='M145.391 396.905l-16.013-14.05 237.678-268.999 16.012 14.05z'/><path fill='" + $searchbar-md-input-clear-icon-color + "' d='M367.056 396.905L129.378 127.906l16.013-14.05 237.677 268.999z'/></svg>";
 
 // App Windows Variables
 // --------------------------------------------------

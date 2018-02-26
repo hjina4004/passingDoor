@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, LoadingController } from 'ionic-angular';
 import { MinbeopProvider } from '../../providers/minbeop/minbeop';
 import { TranslateService } from '@ngx-translate/core';
+import { Http, Response } from '@angular/http';
 
 import { GlobalFunction } from '../../providers/global-function';
 
@@ -29,6 +30,8 @@ export class KeywordResultPage {
     public navParams: NavParams,
     private translate: TranslateService,
     private globalFunction: GlobalFunction,
+    public loadingCtrl: LoadingController,
+    private http: Http,
     private minbeopPv: MinbeopProvider
   ) {
     this.translate.get([
@@ -62,7 +65,17 @@ export class KeywordResultPage {
   }
 
   goNote() {
-    this.globalFunction.moveTo('NotePage', {});
+    let loading = this.loadingCtrl.create({ spinner: 'bubbles', content: '읽어 오는 중입니다.' });
+    loading.present();
+
+    this.http.get('assets/html/minbeop.html')
+    .map((res:Response) => res.text())
+    .subscribe(data => {
+      loading.dismiss();
+      this.globalFunction.moveTo('NotePage', {contentsNote: data});
+    }, error =>{
+      alert("error:" + JSON.stringify(error));
+    });
   }
 
   goVideo() {
