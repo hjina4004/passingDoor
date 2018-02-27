@@ -26,6 +26,11 @@ import { AutocompleteDataProvider } from '../providers/autocomplete-data/autocom
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { GlobalFunction } from '../providers/global-function';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FIREBASE_CONFIG } from './firebase.credentials';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -56,6 +61,9 @@ export function provideSettings(storage: Storage) {
     HttpModule,
     IonicStorageModule.forRoot(),
     HttpClientModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -87,6 +95,7 @@ export function provideSettings(storage: Storage) {
     MinbeopProvider,
     AndroidFullScreen,
     GlobalFunction,
+    AngularFireDatabase,
     AutocompleteDataProvider
   ]
 })
