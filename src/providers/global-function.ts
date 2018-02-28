@@ -9,7 +9,10 @@ export class GlobalFunction {
     public appCtrl: App
   ) {}
 
-  // don't call any of these until this.ready resolves
+  moveRoot (pageName, data) {
+    this.appCtrl.getRootNav().setRoot(pageName, data, {animation: 'ios-transition'});
+  }
+
   moveTo (pageName, data) {
     this.appCtrl.getRootNav().push(pageName, data, {animation: 'ios-transition'});
   }

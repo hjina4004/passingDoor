@@ -1,3 +1,21 @@
 page-signup {
-
+  ::-webkit-scrollbar {display: none;}
+  .error { color:red; }
+  .form-signup {margin-top: 20px; .margin-top-20 {margin-top: 20px;} .item-md {padding-left: 0;}}
+  .div-agree {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 3px 0;
+    .item.item-md {
+      .checkbox-md {
+        margin: 9px 26px 9px 14px;
+      }
+    }
+    .item-block {
+      min-height: 30px;
+    }
+    .label-md {
+      margin: 2px 0;
+    }
+  }
 }

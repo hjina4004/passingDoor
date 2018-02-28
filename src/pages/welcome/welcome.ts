@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform, MenuController, ModalController, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -19,6 +20,7 @@ import { GlobalFunction } from '../../providers/global-function';
 export class WelcomePage {
   title = null;
   confirm_dlg = null;
+  isSignedIn = false;
 
   isViewEvent =  {
     view: 'false'
@@ -38,6 +40,7 @@ export class WelcomePage {
     private menuCtrl: MenuController,
     private modalCtrl: ModalController,
     private storage: Storage,
+    private afAuth: AngularFireAuth,
     private globalFunction: GlobalFunction,
     private alertCtrl: AlertController) {
 
@@ -62,7 +65,17 @@ export class WelcomePage {
     ]).subscribe((values) => {this.title = values});
   } //constructor END
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
+    console.log("WelcomePage - ionViewDidEnter");
+    this.afAuth.authState.subscribe(data => {
+      if (data && data.email && data.uid) {
+        this.globalFunction.presentToast(data.email + '님, 환영합니다.', 3000);
+        this.isSignedIn = true;
+      } else {
+        this.globalFunction.presentToast('로그인 정보를 찾을 수 없습니다.', 3000);
+        this.isSignedIn = false;
+      }
+    });
     // this.viewServiceEvent();
   }
 
@@ -136,7 +149,11 @@ export class WelcomePage {
   }
 
   login(){
-    this.globalFunction.moveTo('LoginPage', {});
+    if (this.isSignedIn) {
+      this.afAuth.auth.signOut();
+    } else {
+      this.globalFunction.moveTo('LoginPage', {});
+    }
   }
 
   howtouse(){
