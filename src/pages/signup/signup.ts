@@ -31,10 +31,10 @@ export class SignupPage {
       nickname: new FormControl('', [Validators.required, this.nickname_check()]),
       password: new FormControl('', [Validators.required, this.password_check()]),
       password_confirm: new FormControl('', [Validators.required, this.password_confirm_check()]),
-      agreeTotal: new FormControl(undefined, [Validators.required]),
+      agreeTotal: new FormControl(undefined, [Validators.required, this.agreeTotal_check()]),
       agreeTermsOfUse: new FormControl(undefined, [Validators.required]),
       agreePrivacyPolicy: new FormControl(undefined, [Validators.required])
-    }, {validator: this.checkCheckbox});
+    });
   }
 
   ionViewDidLoad() {
@@ -63,14 +63,6 @@ export class SignupPage {
         this.user.get('agreePrivacyPolicy').setValue(false);
       }
     }
-  }
-
-  checkCheckbox(c: AbstractControl){
-    if(c.get('agreeTotal').value == false){
-      return false;
-    }
-    else
-      return true;
   }
 
   view_agree() {
@@ -127,5 +119,15 @@ export class SignupPage {
       else
         return null;
     };
+  }
+
+  agreeTotal_check(): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any} => {
+      let isValid : boolean = control.value;
+      if (!isValid)
+        return { 'agreeTotal_check': {isValid} };
+      else
+        return null;
+    }
   }
 }
