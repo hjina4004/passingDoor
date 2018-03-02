@@ -28,7 +28,7 @@ export class LoginPage {
       this.globalFunction.moveRoot('WelcomePage',{});
     }).catch((err) => {
       this.globalFunction.presentToast(err.message, 3000);
-    })
+    });
   }
 
   signup() {

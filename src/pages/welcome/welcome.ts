@@ -21,6 +21,7 @@ export class WelcomePage {
   title = null;
   confirm_dlg = null;
   isSignedIn = false;
+  funAuthSubscribe = null;
 
   isViewEvent =  {
     view: 'false'
@@ -67,7 +68,7 @@ export class WelcomePage {
 
   ionViewDidEnter() {
     console.log("WelcomePage - ionViewDidEnter");
-    this.afAuth.authState.subscribe(data => {
+    this.funAuthSubscribe = this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
         this.globalFunction.presentToast(data.email + '님, 환영합니다.', 3000);
         this.isSignedIn = true;
@@ -77,6 +78,13 @@ export class WelcomePage {
       }
     });
     // this.viewServiceEvent();
+  }
+
+  ionViewDidLeave() {
+    console.log("WelcomePage - ionViewDidLeave");
+
+    if (this.funAuthSubscribe)
+      this.funAuthSubscribe.unsubscribe();
   }
 
   confirmExitApp() {

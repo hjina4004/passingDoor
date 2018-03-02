@@ -15,12 +15,11 @@
             <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
           <ion-item no-lines *ngIf="( user.get('email').hasError('email_check') || user.get('email').hasError('required') ) && user.get('email').touched">
-            <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
-              Mobile No is required
-            </div>
-            <div class="error" *ngIf="user.get('email').hasError('email_check') && user.get('email').touched">
-              Please enter only number(s).
-            </div>
+            <ng-container *ngFor="let validation of validation_messages.email" >
+              <div class="error" *ngIf="user.get('email').hasError(validation.type) && user.get('email').touched">
+                {{ validation.message }}
+              </div>
+            </ng-container>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -30,6 +29,13 @@
             <ion-label color="primary" fixed>닉네임</ion-label>
             <ion-input type="text" formControlName="nickname" placeholder="영문 / 숫자 4~12자"></ion-input>
           </ion-item>
+          <ion-item no-lines *ngIf="( user.get('nickname').hasError('nickname_check') || user.get('nickname').hasError('required') ) && user.get('nickname').touched">
+            <ng-container *ngFor="let validation of validation_messages.nickname" >
+              <div class="error" *ngIf="user.get('nickname').hasError(validation.type) && user.get('nickname').touched">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -38,6 +44,13 @@
             <ion-label color="primary" fixed>비밀번호</ion-label>
             <ion-input type="password" formControlName="password" placeholder="영문 / 숫자 4~12자"></ion-input>
           </ion-item>
+          <ion-item no-lines *ngIf="( user.get('password').hasError('password_check') || user.get('password').hasError('required') ) && user.get('password').touched">
+            <ng-container *ngFor="let validation of validation_messages.password" >
+              <div class="error" *ngIf="user.get('password').hasError(validation.type) && user.get('password').touched">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -45,6 +58,18 @@
           <ion-item>
             <ion-label color="primary" fixed>비밀번호 확인</ion-label>
             <ion-input type="password" formControlName="password_confirm" placeholder="영문 / 숫자 4~12자"></ion-input>
+          </ion-item>
+          <ion-item no-lines *ngIf="(user.hasError('pw_mismatch') || user.get('password_confirm').hasError('required')) && user.get('password_confirm').touched">
+            <ng-container *ngFor="let validation of validation_messages.password_confirm" >
+              <div class="error" *ngIf="user.get('password_confirm').hasError(validation.type) && user.get('password_confirm').touched">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let validation of validation_messages.isMatching" >
+              <div class="error" *ngIf="user.hasError(validation.type) && user.get('password_confirm').touched">
+                {{ validation.message }}
+              </div>
+            </ng-container>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -58,12 +83,12 @@
             <ion-item no-lines>
               <ion-checkbox formControlName="agreeTermsOfUse" (click)="updateAgree(1)"></ion-checkbox>
               <ion-label>서비스 이용약관</ion-label>
-              <button ion-button outline item-end (click)="view_agree(1)">전문보기</button>
+              <button type="button" ion-button outline item-end (click)="view_agree(1)">전문보기</button>
             </ion-item>
             <ion-item no-lines>
               <ion-checkbox formControlName="agreePrivacyPolicy" (click)="updateAgree(2)"></ion-checkbox>
               <ion-label>개인정보 취급방침</ion-label>
-              <button ion-button outline item-end (click)="view_agree(2)">전문보기</button>
+              <button type="button" ion-button outline item-end (click)="view_agree(2)">전문보기</button>
             </ion-item>
           </div>
         </ion-col>
@@ -71,7 +96,7 @@
 
       <ion-row class="margin-top-20">
         <ion-col>
-          <button ion-button block large [disabled]="user.invalid">회원가입</button>
+          <button type="submit" ion-button block large [disabled]="user.invalid">회원가입</button>
         </ion-col>
       </ion-row>
     </ion-grid>
