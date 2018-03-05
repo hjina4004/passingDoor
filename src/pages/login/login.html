@@ -9,7 +9,7 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label color="primary" fixed>아이디</ion-label>
+          <ion-label color="primary" fixed>이메일</ion-label>
           <ion-input type="email" [(ngModel)]="member.email"></ion-input>
         </ion-item>
       </ion-col>
@@ -30,7 +30,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col><button ion-button block clear (click)="find()">아이디/비밀번호 찾기</button></ion-col>
+      <ion-col><button ion-button block clear (click)="resetPassword()">비밀번호 재설정</button></ion-col>
       <ion-col><button ion-button block clear (click)="signup()">신규 회원 가입</button></ion-col>
     </ion-row>
   </ion-grid>

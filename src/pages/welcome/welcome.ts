@@ -6,6 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { GlobalFunction } from '../../providers/global-function';
 
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -22,6 +24,9 @@ export class WelcomePage {
   confirm_dlg = null;
   isSignedIn = false;
   funAuthSubscribe = null;
+  funProfileSubscribe = null;
+
+  dataProfile: AngularFireList<any>;
 
   isViewEvent =  {
     view: 'false'
@@ -42,6 +47,7 @@ export class WelcomePage {
     private modalCtrl: ModalController,
     private storage: Storage,
     private afAuth: AngularFireAuth,
+    private afDB: AngularFireDatabase,
     private globalFunction: GlobalFunction,
     private alertCtrl: AlertController) {
 
@@ -70,8 +76,9 @@ export class WelcomePage {
     console.log("WelcomePage - ionViewDidEnter");
     this.funAuthSubscribe = this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
-        this.globalFunction.presentToast(data.email + '님, 환영합니다.', 3000);
+        // this.globalFunction.presentToast(data.email + '님, 환영합니다.', 3000);
         this.isSignedIn = true;
+        this.profile(data);
       } else {
         this.globalFunction.presentToast('로그인 정보를 찾을 수 없습니다.', 3000);
         this.isSignedIn = false;
@@ -83,8 +90,31 @@ export class WelcomePage {
   ionViewDidLeave() {
     console.log("WelcomePage - ionViewDidLeave");
 
-    if (this.funAuthSubscribe)
+    if (this.funProfileSubscribe) {
+      this.funProfileSubscribe.unsubscribe();
+      this.funProfileSubscribe = null;
+    }
+
+    if (this.funAuthSubscribe) {
       this.funAuthSubscribe.unsubscribe();
+      this.funAuthSubscribe = null;
+    }
+  }
+
+  profile(auth) {
+    console.log("WelcomePage - profile", auth);
+    this.dataProfile = this.afDB.list(`/profile/${auth.uid}`);
+    // Use snapshotChanges().map() to store the key
+    this.funProfileSubscribe = this.dataProfile.snapshotChanges().map(actions => {
+      let data = actions.map(action => ({ key: action.key, ...action.payload.val() }));
+      console.log("map:", data);
+      this.globalFunction.presentToast(data[0]['nickname'] + '님, 환영합니다.', 3000);
+      return data;
+    }).subscribe(items => {
+      let data = items.map(item => item.key);
+      console.log("subscribe:", data);
+      return data;
+    });
   }
 
   confirmExitApp() {
@@ -158,6 +188,10 @@ export class WelcomePage {
 
   login(){
     if (this.isSignedIn) {
+      if (this.funProfileSubscribe) {
+        this.funProfileSubscribe.unsubscribe();
+        this.funProfileSubscribe = null;
+      }
       this.afAuth.auth.signOut();
     } else {
       this.globalFunction.moveTo('LoginPage', {});

@@ -34,7 +34,7 @@ export class SignupPage {
     ],
     'password': [
       { type: 'required', message: '비밀번호를 입력해 주세요.' },
-      { type: 'password_check', message: '영문 / 숫자 4~12자로 입력해 주세요.' }
+      { type: 'password_check', message: '영문 / 숫자 6~12자로 입력해 주세요.' }
     ],
     'password_confirm': [
       { type: 'required', message: '비밀번호 학인을 입력해 주세요.' }
@@ -122,12 +122,9 @@ export class SignupPage {
 
   registerProfile(auth) {
     let theItems = this.afDB.list('/profile' + '/' + auth.uid);
-    theItems.push({ nickname: this.user.get('nickname').value })
-    .then((val) => {
+    theItems.push({ nickname: this.user.get('nickname').value }).then((val) => {
       console.log('Item Saved.', val);
-    })
-    .catch((err) => {
-      console.log(err);
+      this.globalFunction.moveRoot('WelcomePage',{});
     });
   }
 
@@ -145,7 +142,7 @@ export class SignupPage {
 
   nickname_check(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} => {
-      var re = new RegExp("^[a-zA-Z가-힣\\d]{4,12}$");
+      var re = new RegExp("^[a-zA-Z가-힣@\\d]{4,12}$");
       let input = control.value;
       let isValid = re.test(input);
       if (!isValid)
@@ -157,7 +154,7 @@ export class SignupPage {
 
   password_check(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} => {
-      var re = new RegExp("^[a-zA-Z\\d]{4,12}$");
+      var re = new RegExp("^[a-zA-Z\\d]{6,12}$");
       let input = control.value;
       let isValid = re.test(input);
       if (!isValid)

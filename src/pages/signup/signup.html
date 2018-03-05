@@ -42,7 +42,7 @@
         <ion-col>
           <ion-item>
             <ion-label color="primary" fixed>비밀번호</ion-label>
-            <ion-input type="password" formControlName="password" placeholder="영문 / 숫자 4~12자"></ion-input>
+            <ion-input type="password" formControlName="password" placeholder="영문 / 숫자 6~12자"></ion-input>
           </ion-item>
           <ion-item no-lines *ngIf="( user.get('password').hasError('password_check') || user.get('password').hasError('required') ) && user.get('password').touched">
             <ng-container *ngFor="let validation of validation_messages.password" >
@@ -57,7 +57,7 @@
         <ion-col>
           <ion-item>
             <ion-label color="primary" fixed>비밀번호 확인</ion-label>
-            <ion-input type="password" formControlName="password_confirm" placeholder="영문 / 숫자 4~12자"></ion-input>
+            <ion-input type="password" formControlName="password_confirm" placeholder="영문 / 숫자 6~12자"></ion-input>
           </ion-item>
           <ion-item no-lines *ngIf="(user.hasError('pw_mismatch') || user.get('password_confirm').hasError('required')) && user.get('password_confirm').touched">
             <ng-container *ngFor="let validation of validation_messages.password_confirm" >
