@@ -1,3 +1,37 @@
 page-notice {
-
+  ion-navbar.toolbar {
+    padding: 0;
+    min-height: 45px;
+    .toolbar-background-md {
+      background-color: #ffffff;
+      border-bottom: 1px solid lightgray;
+    }
+    .bar-button-default-md, .toolbar-title-md {
+      color: map-get($colors, primary);
+    }
+  }
+  .line-breaker { white-space: pre-line; }
+  .item-md, .item-md.item-block {
+    border-bottom: 1px solid lightgray;
+    padding: 0;
+    .item-inner{
+      padding: 0;
+      border: none;
+      .label-md {
+        margin: 0;
+        .item-md {
+          border: none;
+          padding: 0 20px;
+        }
+        p {
+          background-color: #ffffff;
+          padding: 10px 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .item-md.expanded {
+    background-color: #dedede;
+  }
 }
