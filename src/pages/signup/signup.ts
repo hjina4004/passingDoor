@@ -121,10 +121,21 @@ export class SignupPage {
   }
 
   registerProfile(auth) {
-    let theItems = this.afDB.list('/profile' + '/' + auth.uid);
-    theItems.push({ nickname: this.user.get('nickname').value }).then((val) => {
-      console.log('Item Saved.', val);
+    // let theItems = this.afDB.list('/profile' + '/' + auth.uid);
+    // theItems.push({ nickname: this.user.get('nickname').value }).then((val) => {
+    //   console.log('Item Saved.', val);
+    //   this.globalFunction.moveRoot('WelcomePage',{});
+    // });
+    let user = this.afAuth.auth.currentUser;
+
+    user.updateProfile({
+      displayName: this.user.get('nickname').value,
+      photoURL: null
+    }).then((res) => {
+      console.log('updateProfile', res);
       this.globalFunction.moveRoot('WelcomePage',{});
+    }).catch((error) => {
+      console.log('updateProfile error:', error);
     });
   }
 

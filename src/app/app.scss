@@ -84,6 +84,18 @@ ion-header {
     margin: 13px 6px 6px 0;
   }
   ion-title {height: 100%;}
+
+  ion-navbar.toolbar {
+    padding: 0;
+    min-height: 45px;
+    .toolbar-background-md {
+      background-color: #ffffff;
+      border-bottom: 1px solid lightgray;
+    }
+    .bar-button-default-md, .toolbar-title-md {
+      color: map-get($colors, primary);
+    }
+  }
 }
 
 ion-footer {
@@ -134,3 +146,34 @@ ion-toolbar, .toolbar {
 .margin-top-20 {margin-top: 20px;}
 
 ::-webkit-scrollbar { display: none; }
+
+.accordion {
+  .item-md, .item-md.item-block {
+    border-bottom: 1px solid lightgray;
+    padding: 0;
+    .item-inner {
+      padding: 0;
+      border: none;
+      .label-md {
+        margin: 0;
+        .item-md {
+          border: none;
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
+.accordion-header.expanded {
+  background-color: #dedede;
+}
+.accordion-panel {
+  width: 100%;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
+  padding: 0;
+  margin: 0;
+  p {padding: 10px 20px; white-space: normal;}
+}

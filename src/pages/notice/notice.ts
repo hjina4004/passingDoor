@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, Navbar } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -10,12 +10,6 @@ import 'rxjs/add/operator/map';
 
 import { INotice } from '../../models/notice.m';
 
-/**
- * Generated class for the NoticePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -33,6 +27,7 @@ export class NoticePage {
   constructor(
     private afDB: AngularFireDatabase,
     private translate: TranslateService,
+    private element: ElementRef,
     private globalFunction: GlobalFunction
   ) {}
 
@@ -72,11 +67,18 @@ export class NoticePage {
     });
   }
 
-  expandItem(item){
+  expandItem(item) {
     item.expanded = !item.expanded;
+    if (item.expanded) {
+      let strHeight = this.element.nativeElement.querySelector('#'+item.idx+'>p').offsetHeight + "px";
+      item.style = {'max-height': strHeight};
+    } else {
+      item.style = {'max-height': '0'};
+    }
 
     if (this.selectedItem != item && this.selectedItem != null) {
       this.selectedItem.expanded = false;
+      this.selectedItem.style = {'max-height': '0'};
     }
     this.selectedItem = item;
   }

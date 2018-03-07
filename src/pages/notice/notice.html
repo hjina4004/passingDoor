@@ -28,10 +28,10 @@
 
 <ion-content>
   <div class="swipe-content" (swipe)="swipeEvent($event)">
-    <ion-list>
+    <ion-list class="accordion">
       <ion-item *ngFor="let item of notices | async">
-        <button ion-item [ngClass]="(item.expanded) ? 'expanded':''" (click)="expandItem(item)">{{ item.title }}</button>
-        <p class="line-breaker" *ngIf="item.expanded" [innerHtml]="item.content"></p>
+        <button ion-item [ngClass]="(item.expanded) ? 'accordion-header expanded':'accordion-header'" (click)="expandItem(item)">{{ item.title }}</button>
+        <div [id]="item.idx" class="accordion-panel" [ngStyle]="item.style"><p [innerHtml]="item.content"></p></div>
       </ion-item>
     </ion-list>
   </div>

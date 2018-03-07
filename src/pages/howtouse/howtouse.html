@@ -1,18 +1,38 @@
-<!--
-  Generated template for the HowtousePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button menuToggle>
+          <ion-icon name="mico-bars"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <ion-title>{{ 'APP_NAME' | translate }}</ion-title>
+      </ion-col>
+      <ion-col col-4>
+        <ion-buttons end>
+          <button ion-button default>
+            <ion-icon name="mico-app"></ion-icon>
+          </button>
+          <button ion-button default (click)="memberInfo()">
+            <ion-icon name="mico-user-bold"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
   <ion-navbar>
-    <ion-title>이용방법</ion-title>
+    <ion-title>{{ 'USAGE_TITLE' | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <div class="swipe-content" (swipe)="swipeEvent($event)">
+    <ion-list class="accordion">
+      <ion-item *ngFor="let item of notices | async">
+        <button ion-item [ngClass]="(item.expanded) ? 'accordion-header expanded':'accordion-header'" (click)="expandItem(item)">{{ item.title }}</button>
+        <div [id]="item.idx" class="accordion-panel" [ngStyle]="item.style"><p [innerHtml]="item.content"></p></div>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

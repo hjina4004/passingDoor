@@ -103,18 +103,19 @@ export class WelcomePage {
 
   profile(auth) {
     console.log("WelcomePage - profile", auth);
-    this.dataProfile = this.afDB.list(`/profile/${auth.uid}`);
-    // Use snapshotChanges().map() to store the key
-    this.funProfileSubscribe = this.dataProfile.snapshotChanges().map(actions => {
-      let data = actions.map(action => ({ key: action.key, ...action.payload.val() }));
-      console.log("map:", data);
-      this.globalFunction.presentToast(data[0]['nickname'] + '님, 환영합니다.', 3000);
-      return data;
-    }).subscribe(items => {
-      let data = items.map(item => item.key);
-      console.log("subscribe:", data);
-      return data;
-    });
+    this.globalFunction.presentToast(auth.displayName + '님, 환영합니다.', 3000);
+    // this.dataProfile = this.afDB.list(`/profile/${auth.uid}`);
+    // // Use snapshotChanges().map() to store the key
+    // this.funProfileSubscribe = this.dataProfile.snapshotChanges().map(actions => {
+    //   let data = actions.map(action => ({ key: action.key, ...action.payload.val() }));
+    //   console.log("map:", data);
+    //   this.globalFunction.presentToast(data[0]['nickname'] + '님, 환영합니다.', 3000);
+    //   return data;
+    // }).subscribe(items => {
+    //   let data = items.map(item => item.key);
+    //   console.log("subscribe:", data);
+    //   return data;
+    // });
   }
 
   confirmExitApp() {

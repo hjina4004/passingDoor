@@ -1,0 +1,8 @@
+{
+  "lastest_version_code" : "1",
+  "lastest_version_name" : "0.1",
+  "minimum_version_code" : "1",
+  "minimum_version_name" : "0.1",
+  "force_update_message" : "최신 버전의 합격문으로 업데이트 해주세요.",
+  "optional_update_message" : "최신 버전 업데이트가 있습니다. 새로운 앱을 설치하시겠습니까?"
+}
